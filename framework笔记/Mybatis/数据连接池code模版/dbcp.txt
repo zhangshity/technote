@@ -1,0 +1,79 @@
+spring配置文件
+
+Xml代码  
+<!-- 属性文件配置 -->  
+<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+    <property name="locations">  
+        <list>  
+            <value>classpath:jdbc.properties</value>  
+        </list>  
+    </property>  
+</bean>  
+  
+<!-- dbcp -->  
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"  
+    destroy-method="close">  
+    <property name="driverClassName" value="${driverClassName}" />  
+    <property name="url" value="${url}" />  
+    <property name="username" value="${username}" />  
+    <property name="password" value="${password}" />  
+    <!-- 连接初始值，连接池启动时创建的连接数量的初始值  默认值是0 -->  
+    <property name="initialSize" value="3" />  
+    <!-- 最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请  默认值是0 -->  
+    <property name="minIdle" value="3" />  
+    <!-- 最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止 ，0时无限制  默认值是8 -->  
+    <property name="maxIdle" value="5" />  
+    <!-- 连接池的最大值，同一时间可以从池分配的最多连接数量，0时无限制   默认值是8 -->  
+    <property name="maxActive" value="15" />  
+</bean>  
+ jdbc.properties
+
+Java代码  
+#dbcp  
+driverClassName=com.mysql.jdbc.Driver  
+url=jdbc:mysql://localhost:3306/uplatEui?useUnicode=true&characterEncoding=utf-8  
+username=root  
+password=password  
+maven pom.xml
+
+Xml代码  
+<dependency>  
+    <groupId>commons-dbcp</groupId>  
+    <artifactId>commons-dbcp</artifactId>  
+    <version>1.4</version>  
+</dependency>  
+ 
+
+二、dbcp2
+
+dbcp2需要jdk1.7，否则会报错：Unsupported major.minor version 51.0
+
+maxActive改为了maxTotal
+
+spring配置文件
+
+Xml代码  
+<!-- dbcp2 -->  
+<bean id="dataSource2" class="org.apache.commons.dbcp2.BasicDataSource"  
+    destroy-method="close">  
+    <property name="driverClassName" value="${driverClassName}" />  
+    <property name="url" value="${url}" />  
+    <property name="username" value="${username}" />  
+    <property name="password" value="${password}" />  
+    <!-- 连接初始值，连接池启动时创建的连接数量的初始值  默认值是0 -->  
+    <property name="initialSize" value="3" />  
+    <!-- 最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请  默认值是0 -->  
+    <property name="minIdle" value="3" />  
+    <!-- 最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止 ，0时无限制  默认值是8 -->  
+    <property name="maxIdle" value="5" />  
+    <!-- 连接池的最大值，同一时间可以从池分配的最多连接数量，0时无限制   默认值是8 -->  
+    <property name="maxTotal" value="15" />  
+</bean>  
+maven pom.xml
+
+Xml代码  
+<dependency>  
+    <groupId>org.apache.commons</groupId>  
+    <artifactId>commons-dbcp2</artifactId>  
+    <version>2.1.1</version>  
+</dependency>  

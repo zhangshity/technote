@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+
+<html 
+lang="en">
+
+<head>
+
+<meta 
+charset="utf-8">
+
+<title>ECharts</title>
+
+</head>
+
+<body>
+
+<!-- 为ECharts准备一个具备大小（宽高）的Dom --> 
+
+<div 
+id="main" style="width:600px;height:400px"></div>
+
+<!-- ECharts单文件引入 --> 
+
+<script
+src="./echarts.min.js"></script>
+
+<script
+type="text/javascript">
+
+myChart4 = echarts.init(document.getElementById('main'));
+
+var option4 = {
+
+xAxis: {
+
+data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"],
+
+triggerEvent:true
+
+
+},
+
+yAxis: {},
+
+series: [{
+
+name: '销量',
+
+type: 'bar',
+
+data: [5,
+20, 36, 
+10, 10, 20]
+
+}]
+
+};
+
+// 使用刚指定的配置项和数据显示图表。
+
+myChart4.setOption(option4);
+
+// 处理点击事件并且跳转到相应的百度搜索页面
+
+myChart4.on('click',
+function (params) {
+
+if(params.componentType ==
+"xAxis"){ 
+
+alert("单击了"+params.value+"x轴标签");
+
+}else{ 
+
+alert("单击了"+params.name+"柱状图");
+
+} 
+
+});
+
+</script>
+
+</body>
+
+</html>

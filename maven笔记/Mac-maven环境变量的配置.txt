@@ -1,0 +1,10 @@
+
+文本方式打开
+open -e .bash_profile
+
+
+MAVEN_HOME=/Library/apache-maven-3.5.3
+PATH=$PATH:$MAVEN_HOME/bin  
+  
+export MAVEN_HOME  
+export PATH  

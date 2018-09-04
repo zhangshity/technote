@@ -1,0 +1,11 @@
+
+
+windows+R 键入cmd ：快速呼出dos命令端
+
+sc delete [服务名] (sc delete Tomcat8)：删除系统服务
+
+netstat -ano ：端口占用情况
+
+tomcat环境变量配置
+
+
