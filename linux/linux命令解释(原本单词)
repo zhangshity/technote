@@ -1,0 +1,27 @@
+linux命令解释(原本单词)
+                       --Chunyang.Zhang 手工整理
+
+./                                  当前目录
+../                                 根目录(/)
+cd ..                               返回上级目录
+
+
+ls      (list)                     列表，列出当前目录下的所有文件和文件夹
+pwd     (print work directory)     打印当前工作目录路径
+cp      (copy)                     复制文件或目录
+mv      (move)                     移动文件或目录
+rm      (remove)                   移除文件
+rmdir   (remove directory)         移除目录
+mkdir   (make directory)           新建目录
+ps      (process status)           进程状态
+df      (disk free)                磁盘使用空间
+cmp     (compare)                  比较两个文件是否相同(不能比较目录)
+diff    (difference)	           逐行比较两个文件是否相同,或两目录下同名文件
+touch   (touch)                    创建文件或修改目录时间	
+
+chmod   (change mode)              改变文件模式状态
+
+su      (switch user)              切换用户
+rpm     (redhat package manger)    红帽子打包管理器
+
+echo    (echo)                     回声,回显.在屏幕显示一段文字
