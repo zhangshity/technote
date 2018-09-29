@@ -10,3 +10,19 @@ Mac OS:
        4.再次比对:
        		  cat ~/.ssh/id_rsa.pub
        5.复制返回的值,添加到git库服务提供商(GitHub、GitLab)的设置SSH界面里。
+       6.执行: ssh-add ~/.ssh/id_rsa     将sshkey添加到sourceTree
+	   7.执行: ssh-add -K ~/.ssh/id_rsa  将sshkey添加到钥匙串
+	   8.添加:
+	   		   #-----------------------------
+	   			Host *
+   					UseKeychain yes
+   					AddKeysToAgent yes
+   					IdentityFile ~/.ssh/id_rsa
+   					IdentityFile ~/.ssh/github_rsa
+   			   #-----------------------------
+
+   			   到cd ~/.ssh 下的config文件
+   			   如没有 touch config 命令创建文件 vi config 命令编辑粘贴
+
+Windows:
+		基本同Mac OS,sourcetree的ssh-key添加有GUI也更简单。
