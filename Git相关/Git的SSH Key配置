@@ -1,0 +1,12 @@
+Git的SSH Key配置
+
+
+Mac OS:
+       1.对比默认目录下有没有生成的SSH Key:  
+       	      cat ~/.ssh/id_rsa.pub 
+       2.如有,复制返回的值,添加到git库服务提供商(GitHub、GitLab)的设置SSH界面里。
+       3.如果没有SSH Key,命令生成: 
+              ssh-keygen -t rsa -C "your e-mail address"
+       4.再次比对:
+       		  cat ~/.ssh/id_rsa.pub
+       5.复制返回的值,添加到git库服务提供商(GitHub、GitLab)的设置SSH界面里。
