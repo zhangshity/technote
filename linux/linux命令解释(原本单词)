@@ -50,6 +50,15 @@ hwclock			           硬件时间
 tzselect (time zone select)        时区选择
 timedatectl			   查询修改始终设置
 
+
+=====================================================================================
+useradd username                   添加新用户
+passwd username                    为新用户添加密码
+su username                        切换到新用户
+exit                               退出用户到root
+                                   (新用户根目录为/home/usrname,而root用户根目录为/root)
+
+=====================================================================================
 Key Function 
 Ctrl-c  (Kill foreground process) 
 Ctrl-z  (Suspend foreground process)
