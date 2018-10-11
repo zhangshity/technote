@@ -3,26 +3,36 @@ Git的SSH Key配置
 
 Mac OS:
        1.对比默认目录下有没有生成的SSH Key:  
-       	      cat ~/.ssh/id_rsa.pub 
+       	      cat ~/.ssh/id_rsa.pub      
        2.如有,复制返回的值,添加到git库服务提供商(GitHub、GitLab)的设置SSH界面里。
        3.如果没有SSH Key,命令生成: 
-              ssh-keygen -t rsa -C "your e-mail address"
+              ssh-keygen -t rsa -C "your e-mail address" 
+              如果要指定private key名称,如下命令:
+	      ssh-keygen -t rsa -C "your e-mail address" -f ~/.ssh/id_rsa_github
        4.再次比对:
-       		  cat ~/.ssh/id_rsa.pub
+       	      cat ~/.ssh/id_rsa.pub
        5.复制返回的值,添加到git库服务提供商(GitHub、GitLab)的设置SSH界面里。
-       6.执行: ssh-add ~/.ssh/id_rsa     将sshkey添加到sourceTree
-	   7.执行: ssh-add -K ~/.ssh/id_rsa  将sshkey添加到钥匙串
-	   8.添加:
-	   		   #-----------------------------
-	   			Host *
-   					UseKeychain yes
-   					AddKeysToAgent yes
-   					IdentityFile ~/.ssh/id_rsa
-   					IdentityFile ~/.ssh/github_rsa
-   			   #-----------------------------
-
-   			   到cd ~/.ssh 下的config文件
-   			   如没有 touch config 命令创建文件 vi config 命令编辑粘贴
+       6.执行: ssh-add ~/.ssh/id_rsa     将ssh-key添加到当前运行的ssh-agent缓存中(sourceTree)
+       7.执行: ssh-add -K ~/.ssh/id_rsa  将ssh-key添加到Keychain钥匙串(Mac OS特有保密记录)
+       8.添加配置:(永久记录) 
+              cd ~/.ssh   到用户目录下的.ssh文件夹
+              ls          查找有无config文件
+              如没有:
+                touch config  命令创建config文件
+              如有或创建成功:
+                vi config (open -e config)命令编辑复制粘贴如下:
+	      
+                   # --- Chunyang.Zhang Sunline Gitlab--
+                   Host zhangchunyang-GitLab
+                           HostName gitlab.odc.sunline.cn
+                           User zhangchunyang
+                           UseKeychain yes
+                           AddKeysToAgent yes
+                           PreferredAuthentications publickey
+                           IdentityFile ~/.ssh/id_rsa
+                   # -----------------------------
+              
+              按ESC键并输入 :wq 命令退出
 
 Windows:
 		基本同Mac OS,sourcetree的ssh-key添加有GUI也更简单。
