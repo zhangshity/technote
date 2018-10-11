@@ -1,0 +1,89 @@
+﻿Git的SSH Key配置
+
+============================ Mac OS ========================================
+Mac OS:
+       1.对比默认目录下有没有生成的SSH Key:  
+       	      cat ~/.ssh/id_rsa.pub      
+       2.如有,复制返回的值,添加到git库服务提供商(GitHub、GitLab)的设置SSH界面里。
+       3.如果没有SSH Key,命令生成: 
+              ssh-keygen -t rsa -C "your e-mail address" 
+              如果要指定路径,及private key名称,可以使用如下命令:
+              ssh-keygen -t rsa -C "your e-mail address" -f ~/.ssh/id_rsa_github
+       4.再次比对:
+       	      cat ~/.ssh/id_rsa.pub (改路径及名称后的对比: cat ~/.ssh/id_rsa_github.pub )
+       5.复制返回的值,添加到git库服务提供商(GitHub、GitLab)的设置SSH界面里。(会有邮件通知)
+       6.执行: ssh-add ~/.ssh/id_rsa     将ssh-key添加到当前运行的ssh-agent缓存中(sourceTree)
+       7.执行: ssh-add -K ~/.ssh/id_rsa  将ssh-key添加到Keychain钥匙串(Mac OS特有保密记录)
+       8.添加配置:(永久记录) 
+              cd ~/.ssh   到用户目录下的.ssh文件夹
+              ls          查找有无config文件
+              如没有:
+                touch config  命令创建config文件
+              如有或创建成功:
+                vi config  键入如下内容:
+	        (或 open -e config  命令文本编辑复制下面内容)
+				
+                   # --- Chunyang.Zhang Sunline Gitlab--
+                   Host zhangchunyang-GitLab
+                           HostName gitlab.odc.sunline.cn
+                           User zhangchunyang
+                           UseKeychain yes
+                           AddKeysToAgent yes
+                           PreferredAuthentications publickey
+                           IdentityFile ~/.ssh/id_rsa (改名称后: ~/.ssh/id_rsa_github.pub )
+                   # -----------------------------
+              
+              按ESC键并输入 :wq 命令退出
+       9.测试: ssh -T git@github.com  (ssh -T git@远程托管仓库URL地址)
+			  
+			  
+============================ Windows ========================================
+Windows:
+       1.打开git-bash.exe
+       2.对比默认目录下有没有生成的SSH Key:  
+       	      cat ~/.ssh/id_rsa.pub  
+       3.如有,复制返回的值,添加到git库服务提供商(GitHub、GitLab)的设置SSH界面里。
+       4.如果没有SSH Key,命令生成: 
+              ssh-keygen -t rsa -C "your e-mail address" 
+              如果要指定路径,及private key名称,可以使用如下命令:
+              ssh-keygen -t rsa -C "your e-mail address" -f ~/.ssh/id_rsa_github
+              如果不指定路径,执行命令后需要进行2到4次确认：
+                  ①确认秘钥的保存路径(如果不需要改路径则直接回车)
+                  ②如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖
+				  (如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖)
+                  ③创建密码(如果不需要密码则直接回车)
+                  ④确认密码
+       5.再次比对:
+       	      cat ~/.ssh/id_rsa.pub (改路径及名称后对比命令: cat ~/.ssh/id_rsa_github.pub )
+       6.复制返回的值,添加到git库服务提供商(GitHub、GitLab)的设置SSH界面里。(会有邮件通知)
+       8.添加配置: 
+              cd ~/.ssh   到用户目录下的.ssh文件夹
+              ls          查找有无config文件
+              如没有:
+                touch config  命令创建config文件
+              如有或创建成功:
+                vi config  键入如下内容:
+                (或C:\Users\你电脑用户名\.ssh 找到config文本编辑复制下面内容):
+				
+                   # --- GitHub SSH-Key --
+                   Host zhangshity-github
+                           HostName github.com
+                           User zhangshity
+                           AddKeysToAgent yes
+                           PreferredAuthentications publickey
+                           IdentityFile ~/.ssh/id_rsa (改名称后: ~/.ssh/id_rsa_github.pub )
+                   # -----------------------------
+              
+              按ESC键并输入 :wq 命令退出
+       9.测试: ssh -T git@github.com  (ssh -T git@远程托管仓库URL地址)
+			  
+	   
+	   
+基本同Mac OS,sourcetree的ssh-key添加有GUI也更简单。
+
+============================ Linux ========================================	   
+Linux:	   
+	   
+	   
+	   
+	   

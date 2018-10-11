@@ -1,0 +1,59 @@
+﻿本地Git和远程Git仓库(gitlab.odc.sunline.cn)的常见连接方式有两种     -Chunyang.Zhang
+     1.HTTP协议(账号+密码)
+     2.SSH协议(SSH-Key)
+两者都是基于TCP协议，各有好处。
+     http： 对初学者比较友好只需要仓库账号密码即可，但每次clone都需要输入账号密码(这种方式
+            要求project在创建的时候只能选择“Public”公开状态，Private和Internal私有模式下
+            不能使用http方式进行连接。ssh方式在三种模式下都可以)
+     
+     ssh：  是通过ssh-key确定身份,需要本地和远端仓库key匹配(如果不是远程仓库的拥有者，
+            根本无法远端添加key)不需要每次输入密码。
+
+HTTP是最近更流行的方式，如果因为某些原因不能使用http可以简单配置ssh-key使用SSH来代替
+
+
+
+Git的SSH Key配置
+============================ Windows ========================================
+Windows:
+       1.打开git-bash.exe
+       2.对比默认目录下有没有生成的SSH Key:  
+       	      cat ~/.ssh/id_rsa.pub  
+       3.如有,复制返回的值,添加到git库服务提供商(GitLab)的设置SSH界面里。
+       4.如果没有SSH Key,命令生成: 
+              ssh-keygen -t rsa -C "公司邮箱" 
+              执行命令后需要进行4次确认：
+                  ①确认秘钥的保存路径(直接回车)
+                  ②如果上一步置顶的保存路径下已经有秘钥文件，则需要确认是否覆盖
+		   (如果之前的秘钥不再需要则直接回车覆盖，如需要则手动拷贝到其他目录后再覆盖)
+                  ③创建密码(如果不需要密码则直接回车)
+                  ④确认密码
+       5.再次比对:
+       	      cat ~/.ssh/id_rsa.pub
+       6.复制返回的值,添加到git库服务提供商(GitLab)的设置SSH界面里。(会有邮件通知)
+       8.添加配置(git-bash.exe): 
+              cd ~/.ssh   到用户目录下的.ssh文件夹
+              ls          对比查找有无config文件
+              如没有:
+                touch config  命令创建config文件
+              如有或创建成功:
+                vi config  键入如下内容:
+	        (或我的电脑 C:\Users\你电脑用户名\.ssh 找到config文本编辑复制下面内容):
+				
+                   # --- GitHub SSH-Key --
+                   Host gitlab
+                           HostName gitlab.odc.sunline.cn
+                           User zhangchunyang (自己的名字）
+                           AddKeysToAgent yes
+                           PreferredAuthentications publickey
+                           IdentityFile ~/.ssh/id_rsa
+                   # -----------------------------
+              
+              按ESC键并输入 :wq 命令退出
+       9.测试: ssh -T git@gitlab.odc.sunline.cn 
+			  
+	   
+
+
+	   
+	   
