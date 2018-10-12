@@ -1,6 +1,6 @@
 
-This note repository is about computer science and popular technology.(CS&Tech笔记)
-===
+# This note repository is about computer science and popular technology.(CS&Tech笔记)
+
                                                                                   Written by CHUNYANG ZHANG
 ---
 ### 仓库作用升级
