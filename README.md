@@ -1,6 +1,9 @@
 
-win下修改了自述文件
+This note is about computer science and popular technology.(CS&Tech笔记)
 ===
+                                                       by CHUNYANG ZHANG
+---
+win下修改了自述文件
 #已经完成了mac和win的同步，通过github的中转库
 ##新的仓库自述文件的描述
 *2018/09/04
