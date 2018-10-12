@@ -1,7 +1,7 @@
 
-This note is about computer science and popular technology.(CS&Tech笔记)
+This note repository is about computer science and popular technology.(CS&Tech笔记)
 ===
-                                                       by CHUNYANG ZHANG
+                                                                                             Written by CHUNYANG ZHANG
 ---
 win下修改了自述文件
 #已经完成了mac和win的同步，通过github的中转库
