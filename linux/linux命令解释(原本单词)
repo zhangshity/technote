@@ -25,7 +25,7 @@ mkdir   (make directory)           新建目录
 ps      (process status)           进程状态
 df      (disk free)                磁盘使用空间
 cmp     (compare)                  比较两个文件是否相同(不能比较目录)
-diff    (difference)	           逐行比较两个文件是否相同,或两目录下同名文件
+diff    (difference)               逐行比较两个文件是否相同,或两目录下同名文件
 touch   (touch)                    创建文件或修改目录时间	
 
 chmod   (change mode)              改变文件模式状态
