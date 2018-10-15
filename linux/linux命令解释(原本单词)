@@ -48,7 +48,7 @@ ln      (link)                     为某一个文件在另外一个位置建立
 
 date				   日期时间
 clock			           硬件时间
-hwclock			           硬件时间
+hwclock                            硬件时间
 tzselect (time zone select)        时区选择
 timedatectl			   查询修改始终设置
 
