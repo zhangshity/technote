@@ -1,0 +1,28 @@
+Mac环境变量
+
+全局: /etc/profile (不懂别瞎几把碰此文件)
+系统: /etc/bashrc （最好也别动）
+用户: ~/.bash_profile (从这里提添加就好)
+
+
+
+
+
+下面为格式举例:
+
+
+export PATH=$PATH:/usr/local/mysql/bin
+
+
+export MAVEN_HOME=/Library/apache-maven-3.5.3 
+export PATH=$PATH:$MAVEN_HOME/bin 
+
+
+export JAVA_6_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+export JAVA_7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0.jdk/Contents/Home
+export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home
+export JAVA_HOME=$JAVA_8_HOME
+
+
+
+export PATH=$PATH:/Library/apache-tomcat-8.0.50/bin
