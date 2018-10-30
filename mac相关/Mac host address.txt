@@ -1,0 +1,8 @@
+Mac host address
+
+/private/etc/hosts
+
+edit-way: 
+          
+         1. sudo vi /private/etc/hosts
+         2. sudo open -e /private/etc/hosts

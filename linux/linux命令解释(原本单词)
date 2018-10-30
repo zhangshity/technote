@@ -36,6 +36,26 @@ rpm     (redhat package manger)    红帽子打包管理器
 echo    (echo)                     回声,回显.在屏幕显示一段文字
 cat     (concatenate)              显示或把多个文本文件连接起来
 
+=====================================================================================
+ssh     (source shell)             远程连接协议
+       （格式: ssh root@10.xx.xx.120）
+                                              -p 指定端口
+
+scp     (source copy)              从linux(Mac)到linux资源拷贝
+        (格式: scp ~/cds-2.0.0.0-SNAPSHOT.zip bds@10.xx.xx.122:/app/tomcat/webapps/ROOT)
+        (格式: scp bds@10.xx.xx.122:~/cds-2.0.0.0-SNAPSHOT.zip /Users/Desktop)
+                                              
+                                              -r 拷贝文件夹下的所有文件
+        
+=====================================================================================
+logout                             退出当前根用户(断开连接)
+reboot                             重启服务器
+shutdown                           关机
+
+unzip                              解压zip
+tar -zxvf                          解压tar.gz                                         
+
+=====================================================================================
 ln      (link)                     为某一个文件在另外一个位置建立一个同步的链接
                                       	      -b 删除，覆盖以前建立的链接
 					      -d 允许超级用户制作目录的硬链接
