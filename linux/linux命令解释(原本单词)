@@ -28,11 +28,25 @@ cmp     (compare)                  比较两个文件是否相同(不能比较�
 diff    (difference)               逐行比较两个文件是否相同,或两目录下同名文件
 touch   (touch)                    创建文件或修改目录时间	
 
+vi      (visual editor)            可视化文本编辑器
+                                              退出编辑:     [Esc]键
+                                              保存并退出：   :wq
+                                              强制保存退出:  :wq!
+                                              直接退出:     :q        
+                                              强制退出:     :q!
+                                              查看文档比例:  Ctrl + g
+                                              跳到文档末行:  G  (shift + g)
+                                              跳到文档首行:  gg
+                                              向上翻页:     Ctrl + f (front) 或 PageUp键
+                                              向下翻页:     Ctrl + b (back)  或 PageDown键
+
+
 chmod   (change mode)              改变文件模式状态
 
 su      (switch user)              切换用户
 rpm     (redhat package manger)    红帽子打包管理器
 
+locale  (locale)                   场景,语言编码环境
 echo    (echo)                     回声,回显.在屏幕显示一段文字
 cat     (concatenate)              显示或把多个文本文件连接起来
 
