@@ -1,0 +1,4 @@
+locale的设定及其LANG、LC_ALL、LANGUAGE环境变量的区别
+
+
+https://www.cnblogs.com/dolphi/p/3622420.html
