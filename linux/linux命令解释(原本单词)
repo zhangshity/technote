@@ -68,6 +68,8 @@ logout                             退出当前根用户(断开连接)
 reboot                             重启服务器
 shutdown                           关机
 
+history                            命令历史记录
+
 unzip                              解压zip
 tar -zxvf                          解压tar.gz                                         
 
