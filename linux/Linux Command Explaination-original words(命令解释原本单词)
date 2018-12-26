@@ -80,8 +80,15 @@ shutdown                           关机
 
 history                            命令历史记录
 
-unzip                              解压zip
-tar -zxvf                          解压tar.gz                                         
+unzip                              解压zip 
+
+tar -zxvf                          解压tar.gz
+tar -zcvf                          压缩成tar.gz
+
+                                   file       -f  指定备份文件。
+                                   verbose    -v  显示指令执行过程。
+                                   extract    -x  从备份文件中还原文件。
+                                   create     -c  建立新的备份文件。                                  
 
 =====================================================================================
 ln      (link)                     为某一个文件在另外一个位置建立一个同步的链接
