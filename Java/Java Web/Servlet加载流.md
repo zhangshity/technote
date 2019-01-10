@@ -70,14 +70,14 @@ public class HelloServlet implements servlet{
 	version="3.1" metadata-complete="true">
 
     <servlet>
-      	<servlet-name>HelloServlet</servlet-name>
-		    <servlet-class>com.zcy.test.HelloServlet</servlet-class>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>com.zcy.test.HelloServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-	    	<servlet-name>HelloServlet</servlet-name>
-	    	<url-pattern>/hello</url-pattern>
-	</servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
 
 </web-app>
 ```
