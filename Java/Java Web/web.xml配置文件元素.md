@@ -1,5 +1,5 @@
 
-# 史上最全web.xml配置文件元素详解
+# web.xml配置文件元素详解
 
 ### 一、web.xml配置文件常用元素及其意义预览
 ```
@@ -204,7 +204,7 @@
 3      <taglib-location>/WEB-INF/jsp/debug-taglib.tld</taglib-location>
 4  </taglib>
 ```
-  如果开发工具一直在报错,应该把<taglib> 放到 <jsp-config>中
+  如果开发工具一直在报错,应该把`<taglib>` 放到 `<jsp-config>`中
 ```
 1 <jsp-config>
 2      <taglib>
