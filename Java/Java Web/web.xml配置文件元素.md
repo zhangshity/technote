@@ -1,5 +1,5 @@
 
-# 史上最全web.xml配置文件元素详解
+# web.xml配置文件元素详解
 
 ### 一、web.xml配置文件常用元素及其意义预览
 ```
@@ -104,9 +104,9 @@
 2      <param-name>参数名</para-name>
 3      <param-value>参数值</param-value>
 4      <description>参数描述</description>
-5  </context-param>
+5 </context-param>
 ```
-* 在servlet里面可以通过 getServletContext().getInitParameter(“context/param”)得到
+  在servlet里面可以通过 getServletContext().getInitParameter(“context/param”)得到
 
  
 
@@ -130,7 +130,7 @@
 ```
 1 <listener>
 2      <listerner-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-3  </listener>
+3 </listener>
 ```
 
 ##### 7.Servlet配置
@@ -148,17 +148,18 @@
 11    </run-as>
 12 　 <load-on-startup>指定当Web应用启动时，装载Servlet的次序</load-on-startup>
 13 </servlet>
-14 <servlet-mapping>
-15   <servlet-name>servlet名称</servlet-name>
-16   <url-pattern>映射路径</url-pattern>
-17 </servlet-mapping>
+14
+15 <servlet-mapping>
+16   <servlet-name>servlet名称</servlet-name>
+17   <url-pattern>映射路径</url-pattern>
+18 </servlet-mapping>
 ```
 
 ##### 8.会话超时配置（单位为分钟）
 ```
 1 <session-config>
 2      <session-timeout>120</session-timeout>
-3  </session-config>
+3 </session-config>
 ```
 
 ##### 9.MIME类型配置
@@ -180,15 +181,15 @@
 
 ##### 11.配置错误页面
 
-　　* (1).通过错误码来配置error-page
+ 　　  (1).通过错误码来配置error-page
 ```
 1 <!--配置了当系统发生404错误时，跳转到错误处理页面NotFound.jsp-->
 2 <error-page>
 3       <error-code>404</error-code>
 4       <location>/NotFound.jsp</location>
-5  </error-page>
+5 </error-page>
 ```
-　　* (2).通过异常的类型配置error-page
+　　  (2).通过异常的类型配置error-page
 ```
 1 <!--配置了当系统发生java.lang.NullException（即空指针异常）时，跳转到错误处理页面error.jsp-->
 2 <error-page>
@@ -202,16 +203,16 @@
 1 <taglib>
 2      <taglib-uri>http://jakarta.apache.org/tomcat/debug-taglib</taglib-uri>
 3      <taglib-location>/WEB-INF/jsp/debug-taglib.tld</taglib-location>
-4  </taglib>
+4 </taglib>
 ```
-* 如果开发工具一直在报错,应该把<taglib> 放到 <jsp-config>中
+  如果开发工具一直在报错,应该把`<taglib>` 放到 `<jsp-config>`中
 ```
 1 <jsp-config>
 2      <taglib>
 3          <taglib-uri>http://jakarta.apache.org/tomcat/debug-taglib</taglib-uri>
 4          <taglib-location>/WEB-INF/pager-taglib.tld</taglib-location>
 5      </taglib>
-6  </jsp-config>
+6 </jsp-config>
 ```
 
 ##### 13.资源管理对象配置
@@ -229,7 +230,7 @@
 4      <res-auth>Container</res-auth>
 5 </resource-ref>
 ```
-　　* 配置数据库连接池就可在此配置
+　　  配置数据库连接池就可在此配置
 ```
 1  <resource-ref>
 2      <description>JNDI JDBC DataSource of shop</description>
@@ -275,7 +276,7 @@
 ```
 1 <security-role>
 2      <role-name>tomcat</role-name>
-3  </security-role>
+3 </security-role>
 ```
 
 ##### 18.Web环境参数：env-entry元素声明Web应用的环境项
@@ -295,7 +296,7 @@
 4      <ejb-ref-type>Entity</ejb-ref-type>
 5      <home>com.mycompany.mypackage.AccountHome</home>
 6      <remote>com.mycompany.mypackage.Account</remote>
-7  </ejb-ref>
+7 </ejb-ref>
 ``` 
 
 ##### 20.本地EJB声明
