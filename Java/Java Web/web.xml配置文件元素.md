@@ -106,7 +106,7 @@
 4      <description>参数描述</description>
 5  </context-param>
 ```
-* 在servlet里面可以通过 getServletContext().getInitParameter(“context/param”)得到
+  在servlet里面可以通过 getServletContext().getInitParameter(“context/param”)得到
 
  
 
@@ -180,7 +180,7 @@
 
 ##### 11.配置错误页面
 
-*　　  (1).通过错误码来配置error-page
+ 　　  (1).通过错误码来配置error-page
 ```
 1 <!--配置了当系统发生404错误时，跳转到错误处理页面NotFound.jsp-->
 2 <error-page>
@@ -188,7 +188,7 @@
 4       <location>/NotFound.jsp</location>
 5  </error-page>
 ```
-　　* (2).通过异常的类型配置error-page
+　　  (2).通过异常的类型配置error-page
 ```
 1 <!--配置了当系统发生java.lang.NullException（即空指针异常）时，跳转到错误处理页面error.jsp-->
 2 <error-page>
@@ -204,7 +204,7 @@
 3      <taglib-location>/WEB-INF/jsp/debug-taglib.tld</taglib-location>
 4  </taglib>
 ```
-* 如果开发工具一直在报错,应该把<taglib> 放到 <jsp-config>中
+  如果开发工具一直在报错,应该把<taglib> 放到 <jsp-config>中
 ```
 1 <jsp-config>
 2      <taglib>
@@ -229,7 +229,7 @@
 4      <res-auth>Container</res-auth>
 5 </resource-ref>
 ```
-　　* 配置数据库连接池就可在此配置
+　　  配置数据库连接池就可在此配置
 ```
 1  <resource-ref>
 2      <description>JNDI JDBC DataSource of shop</description>
