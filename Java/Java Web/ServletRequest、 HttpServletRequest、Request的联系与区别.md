@@ -8,7 +8,7 @@
 
     所以HttpServletRequest、HttpServletResponse分别是ServletRequest和ServletResponse的子类(子接口)
 
-##### 二 
+##### 二
          HttpServletRequest和ServletRequest都是接口
 
          HttpServletRequest继承自ServletRequest
@@ -19,16 +19,17 @@
 
         javax.servlet.ServletRequestWrapper (implements javax.servlet.ServletRequest)
 
-        javax.servlet.http.HttpServletRequestWrapper (implements javax.servlet.http.HttpServletRequest) 
+        javax.servlet.http.HttpServletRequestWrapper (implements javax.servlet.http.HttpServletRequest)
 
 ##### 三
 
         而所谓的request（在JSP中使用的）其实只是规范中的一个名称而已。它当然是一个对象，但并不是SUN提供的，这是由各个不同的Servlet提供商编写的，SUN只是规定这个类要实现HttpServletRequest接口，并且规定了各个方法的用途，但具体是什么类是由各个提供商自己决定的。
 
-
-
-
-> ===============================================================
+> >
+> >
+> >
+> >
+### ========================================================================
 
 # 补充Servlet 、HttpServlet关系
 
