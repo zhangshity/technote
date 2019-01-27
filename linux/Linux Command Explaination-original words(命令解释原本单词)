@@ -54,6 +54,8 @@ vi      (visual editor)            可视化文本编辑器
 chmod   (change mode)              改变文件模式状态
 
 su      (switch user)              切换用户
+su -                               切换用户及变量
+
 rpm     (redhat package manger)    红帽子打包管理器
 
 locale  (locale)                   场景,语言编码环境
