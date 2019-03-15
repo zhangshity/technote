@@ -11,6 +11,8 @@ mysql soft nofile 65535
 ```
 ##### 配置mariadb.service
 * 打开 `/usr/lib/systemd/system/mariadb.service`, mysql是mysqld.service
-`LimitNOFILE=65535`
+```
+LimitNOFILE=65535
+```
 ##### 重启mariadb
 * 重启mariadb, my.cnf中的 max_connections就会生效
