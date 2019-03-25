@@ -1,6 +1,3 @@
-appctl cbs-ltts-onl start
-
-
 ### 查看yum是否安装
 
 *         `rpm -qa |grep yum`
