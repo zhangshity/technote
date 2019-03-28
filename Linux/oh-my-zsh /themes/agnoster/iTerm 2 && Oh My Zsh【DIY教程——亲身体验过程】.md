@@ -1,8 +1,10 @@
 # iTerm 2 && Oh My Zsh【DIY教程——亲身体验过程】
 
+> [转]<https://www.jianshu.com/p/7de00c73a2bb>
+
 * 年前，在搞终端的时候偶然一次机会，让我看到了各种强大的DIY界面，这让我很想去自己搞一个。于是在网上不断的寻找资源，也请教了大多数朋友。最终以失败告终。最近，本人又突然想起当时这件事，于是，决定边做笔记，边尝试当初失败的过程。经过一个晚上的时间，终于DIY出我梦寐以求的效果。
 
-  #####最终DIY效果图:
+  #### 最终DIY效果图:
 
 ![81f8a509gy1fn91lygevxj212q0tykc8](http://wx3.sinaimg.cn/mw690/81f8a509gy1fn91lygevxj212q0tykc8.jpg)
 
@@ -14,12 +16,8 @@
 
 ### 3. 输入下面指令安装[oh-my-zsh](https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Frobbyrussell%2Foh-my-zsh) 
 
-```
+```bash
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-```
-
-```
-
 ```
 
 
@@ -30,13 +28,13 @@ curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | 
 
 如果你的终端能够正常执行pip指令，那么直接执行下面的指令可以完成安装
 
-```
+```bash
 pip install powerline-status
 ```
 
 如果没有，则先执行安装pip指令
 
-```
+```bash
 sudo easy_install pip
 ```
 
