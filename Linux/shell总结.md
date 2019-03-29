@@ -1,7 +1,8 @@
-# shell是什么？ 
+# shell 总结 
 
                                                     by chunyang.zhang
 ---
+### shell是什么？
 * 是一种linux的命令解释器。
 * 是用户与linux系统沟通的一个桥梁。
 * 当然其本质就是一个C语言编写的程序。
