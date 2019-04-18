@@ -4,10 +4,11 @@ linux命令解释(原本单词)
 
 	
 cd /    (change directory)         根目录(/)
-        (可以省略"/"符号)
 cd .    (change directory)         当前目录
-cd ~    (change directory)         用户目录
 cd ..   (change directory)         返回上级目录
+cd ~    (change directory)         用户目录
+cd      (可以省略"~"符号)          用户目录
+
 
 
 
@@ -16,10 +17,10 @@ pwd     (print work directory)     打印当前工作目录路径
 cp      (copy)                     复制文件或目录
 mv      (move)                     移动文件或目录
 rm      (remove)                   移除文件或目录(rm -r 移除目录,子文件或目录只读会询问)
-					      -i  删除前逐一询问确认。
-					      -f  即使原档案属性设为唯读，亦直接删除，无需逐一确认。
-                                              -r  将目录及以下之档案亦逐一删除。
-		                              -rf 强制删除目录或文件,不提示。
+					      -i    删除前逐一询问确认。(interactive)
+					      -f    即使原档案属性设为唯读，亦直接删除，无需逐一确认。(force)
+                                              -r/R  将目录及以下之档案亦逐一删除。(recursive)
+		                              -rf   强制删除目录或文件,不提示。
 
 rmdir   (remove directory)         移除空目录
 mkdir   (make directory)           新建目录
@@ -29,9 +30,12 @@ ps      (process status)           进程状态
 
 grep    (Global Regular Expression Print) 全局正则表达式
 
+lsof    (list open files)          列出打开文件
+                                              -i       列出所有网络连接 (internet)
+                                              -i :3306 列出3306端口网络连接
 kill    (kill)                     结束进程
-                                   -15  Termination (request to terminate)(默认)
-                                   -9   Kill (terminate immediately)
+                                              -15  Termination (request to terminate)(默认)
+                                              -9   Kill (terminate immediately)
                                  
 df      (disk free)                磁盘使用空间
 cmp     (compare)                  比较两个文件是否相同(不能比较目录)
