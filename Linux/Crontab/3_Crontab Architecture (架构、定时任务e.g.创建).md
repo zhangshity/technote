@@ -1,19 +1,29 @@
-# Crontab Architecture (架构)
+# 3_Crontab Architecture (架构及简单定时任务e.g.创建)
 
 ​                                                                                                                                          Chunyang . Zhang
 
 ---
+> ##### Crond守护进程会周期性的定时读取Crontab文件 (通过Crontab解析工具)，并执行其命令(shell python java等)，从而实现定时任务功能。
+> 
+> * 文件架构图
+> ![Crontab Architecture](https://github.com/zhangshity/technote/blob/master/Resources/crontab_architecture.jpg)
 
-![Crontab Architecture](https://github.com/zhangshity/technote/blob/master/Resources/crontab_architecture.jpg)
-* 按照格式编写定时任务：
+---
 
-| 分 时 日 月 周 |
-| -------------- |
-| my Command     |
 
+> * Crontab文件命令初步解释(详细解释会在**4_Crontab** 文件格式说明)
+>
+> | 分 时 日 月 周 |
+> | -------------- |
+> | my Command     |
+
+---
+###简单的Crontab定时任务创建过程 ：
 1. 编辑crontab表单
 
    `crontab -e`
+
+   vim 编辑 **crontab文件** 内容 ：`* * * * * my command`  ,并保存
 
 2. 查看crontab表单
 
@@ -56,4 +66,4 @@
    Apr 25 14:31:55 ODCDITCBS01 crond[17939]: (CRON) INFO (@reboot jobs will be run at computer's startup.)
    ```
 
-   
+5. 成功后 **crond** 守护进程会根据 **crontab文件** 配置来执行任务。(当然例子中的my command 是无效命令，故不会产生直观效果，具体可视化的例子会在 **5_Crontab e.g. 简单例子** 中展现)

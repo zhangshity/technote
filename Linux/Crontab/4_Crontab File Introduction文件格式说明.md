@@ -1,8 +1,8 @@
-# CRONTAB 文件格式
+# 4_CRONTAB 文件格式
 Author : Chunyang .Zhang
 
 ---
-> * 命令格式详解 (5 * + command)
+> ### 命令格式详解 (5 * + command)
 >
 > | *    *    *    *    * | My Command   |
 > | --------------------- | ------------ |
@@ -12,7 +12,7 @@ Author : Chunyang .Zhang
 
 
 
-> * Scope of each  ' * ’ (每一个 * 的范围)
+> ### Scope of each  ' * ’ (每一个 * 的范围)
 > 
 > 1. 表格展示(table)
 > 
@@ -28,7 +28,7 @@ Author : Chunyang .Zhang
 >  * * * * * user-name command to be executed
 > ```
 > 
-> 2. 图像展示(image in chinese)
+> 2. 图像展示(image explanation by Chinese)
 > 
 > ![Crontab Scope](https://github.com/zhangshity/technote/blob/master/Resources/crontab_scope.png)
 > 
