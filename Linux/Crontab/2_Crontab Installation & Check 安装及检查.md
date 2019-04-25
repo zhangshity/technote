@@ -1,5 +1,9 @@
 ## 2_Crontab Installation & Check
 
+Author : Chunyang .Zhang
+
+---
+
 > * Linux安装(yum):
 > 1. 清理yum缓存：`yum clean all`
 >
