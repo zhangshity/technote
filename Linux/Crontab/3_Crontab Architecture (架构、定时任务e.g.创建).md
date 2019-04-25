@@ -1,6 +1,6 @@
 # 3_Crontab Architecture (架构及简单定时任务e.g.创建)
 
-​                                                                                                                                          Chunyang . Zhang
+Author : Chunyang .Zhang
 
 ---
 > ##### Crond守护进程会周期性的定时读取Crontab文件 (通过Crontab解析工具)，并执行其命令(shell python java等)，从而实现定时任务功能。
