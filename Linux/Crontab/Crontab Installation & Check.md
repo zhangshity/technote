@@ -25,47 +25,49 @@
 
 > * 验证Crond服务和crontab工具 (centos)
 >
->   1. 检查crond服务安装及启动：
->     `yum list cronie && systemctl status crond`
+> 1. 检查crond服务安装及启动：
 >
->     成功返回：
+>    `yum list cronie && systemctl status crond`
 >
->     ```bash
->     [affincbs@ODCDITCBS01 ~]$ yum list cronie && systemctl status crond
->     Loaded plugins: fastestmirror
->     Determining fastest mirrors
+> 成功返回：
+>
+> ```bash
+> [affincbs@ODCDITCBS01 ~]$ yum list cronie && systemctl status crond
+> Loaded plugins: fastestmirror
+> Determining fastest mirrors
 >      * base: ap.stykers.moe
 >      * extras: ap.stykers.moe
 >      * updates: ap.stykers.moe
->     Installed Packages
->     cronie.x86_64                                                          1.4.11-20.el7_6                                                          @updates
->     ● crond.service - Command Scheduler
->        Loaded: loaded (/usr/lib/systemd/system/crond.service; enabled; vendor preset: enabled)
->        Active: active (running) since Wed 2019-04-24 15:52:47 CST; 18h ago
->      Main PID: 16138 (crond)
->        CGroup: /system.slice/crond.service
->                └─16138 /usr/sbin/crond -n
->     ```
+> Installed Packages
+> cronie.x86_64                                                          1.4.11-20.el7_6                                                          @updates
+> ● crond.service - Command Scheduler
+>  Loaded: loaded (/usr/lib/systemd/system/crond.service; enabled; vendor preset: enabled)
+>  Active: active (running) since Wed 2019-04-24 15:52:47 CST; 18h ago
+> Main PID: 16138 (crond)
+>  CGroup: /system.slice/crond.service
+>          └─16138 /usr/sbin/crond -n
+> ```
 >
->     
+> 
 >
->   2. 检查crontab工具是否安装：
->        `yum list crontabs && which crontab && crontab -l `
+> 2. 检查crontab工具是否安装：
 >
->      成功返回：
+>   `yum list crontabs && which crontab && crontab -l `
 >
->      ```bash
->      [affincbs@ODCDITCBS01 ~]$ yum list crontabs && which crontab && crontab -l
->      Loaded plugins: fastestmirror
->      Loading mirror speeds from cached hostfile
+> 成功返回：
+>
+> ```bash
+> [affincbs@ODCDITCBS01 ~]$ yum list crontabs && which crontab && crontab -l
+> Loaded plugins: fastestmirror
+> Loading mirror speeds from cached hostfile
 >       * base: ap.stykers.moe
 >       * extras: ap.stykers.moe
 >       * updates: ap.stykers.moe
->      Installed Packages
->      crontabs.noarch                                                     1.11-6.20121102git.el7                                                     @anaconda
->      /usr/bin/crontab
->      no crontab for affincbs
->      ```
+> Installed Packages
+> crontabs.noarch                                                     1.11-6.20121102git.el7                                                     @anaconda
+> /usr/bin/crontab
+> no crontab for affincbs
+> ```
 
 
 
