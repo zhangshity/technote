@@ -59,6 +59,19 @@ Author : Chunyang .Zhang
       Password:
       ==== AUTHENTICATION COMPLETE ===
       ```
+      * 如果不是root用户且无执行权限，又没有输入root用户密码的提示
+      
+        ```bash
+        [affincbs@ODCDITCBS01 ~]$ systemctl restart crond
+        Failed to restart crond.service: Interactive authentication required.
+        See system logs and 'systemctl status crond.service' for details.
+        ```
+      
+        则需要手动切换用户并输入密码，登录后再次执行命令
+      
+        ```bash
+        su - root 
+        ```
       
    * 查看
    
