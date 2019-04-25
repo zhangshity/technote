@@ -1,4 +1,4 @@
-##Crontab Installation & Check
+## Crontab Installation & Check
 
 > * Linux安装(yum):
 > 1. 清理yum缓存：`yum clean all`
@@ -7,23 +7,21 @@
 >
 > 3. 安装cron服务和crontab工具：`yum install -y cronie crontabs` (-y 是yes,安装中不用反复确认 )
 >
->    成功返回:
+> 成功返回:
 >
->    ```bash
->    [root@ODCDITCBS01 ~]# yum install -y cronie crontabs
->    Loaded plugins: fastestmirror
->    Loading mirror speeds from cached hostfile
+> ```bash
+> [root@ODCDITCBS01 ~]# yum install -y cronie crontabs
+> Loaded plugins: fastestmirror
+> Loading mirror speeds from cached hostfile
 >     * base: ap.stykers.moe
 >     * extras: ap.stykers.moe
 >     * updates: ap.stykers.moe
->    Package cronie-1.4.11-20.el7_6.x86_64 already installed and latest version
->    Package crontabs-1.11-6.20121102git.el7.noarch already installed and latest version
->    Nothing to do
->    ```
+> Package cronie-1.4.11-20.el7_6.x86_64 already installed and latest version
+> Package crontabs-1.11-6.20121102git.el7.noarch already installed and latest version
+> Nothing to do
+> ```
 >
->    
-
-
+---
 
 > * 验证Crond服务和crontab工具 (centos)
 >
