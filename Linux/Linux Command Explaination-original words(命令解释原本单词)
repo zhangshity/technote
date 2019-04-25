@@ -29,6 +29,7 @@ ps      (process status)           进程状态
                                               -f 全格式。
 
 grep    (Global Regular Expression Print) 全局正则表达式
+                                              ps -ef|grep tomcat 查看tomcat进程
 
 lsof    (list open files)          列出打开文件
                                               -i       列出所有网络连接 (internet)
@@ -45,9 +46,9 @@ touch   (touch)                    创建文件或修改目录时间
 vi      (visual editor)            可视化文本编辑器
                                               退出编辑:     [Esc]键
                                               保存并退出：   :wq
-                                              强制保存退出:  :wq!
+                                              强制保存退出:  :wq! (ZZ)
                                               直接退出:     :q        
-                                              强制退出:     :q!
+                                              强制退出:     :q!  (ZQ)
                                               查看文档比例:  Ctrl + g
                                               跳到文档末行:  G  (shift + g)
                                               跳到文档首行:  gg
@@ -67,7 +68,11 @@ echo    (echo)                     回声,回显.在屏幕显示一段文字
 cat     (concatenate)              显示或把多个文本文件连接起来
 
 tail                               查看文件的内容(filename.log)  
-                                              -f 循环读取                        
+                                              -f 循环读取   
+
+ping    (Packet Internet Groper)   测试网络连接量                   
+telnet  (?)                        Window下?
+curl    (CommandLine Uniform Resource Locator)   命令行返回网页内容                  
 =====================================================================================
 ssh     (source shell)             远程连接协议
        （格式: ssh root@10.xx.xx.120）
@@ -117,7 +122,8 @@ timedatectl			   查询修改始终设置
 =====================================================================================
 useradd username                   添加新用户
 passwd username                    为新用户添加密码
-su username                        切换到新用户
+su username    (switch user)       切换到新用户
+su - username  (switch user)       切换用户同时切换环境
 exit                               退出用户到root
                                    (新用户根目录为/home/usrname,而root用户根目录为/root)
 
