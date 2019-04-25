@@ -40,7 +40,7 @@
 >      * extras: ap.stykers.moe
 >      * updates: ap.stykers.moe
 >     Installed Packages
->     cronie.x86_64                                1.4.11-20.el7_6                   @updates
+>     cronie.x86_64                                                          1.4.11-20.el7_6                                                          @updates
 >     ● crond.service - Command Scheduler
 >        Loaded: loaded (/usr/lib/systemd/system/crond.service; enabled; vendor preset: enabled)
 >        Active: active (running) since Wed 2019-04-24 15:52:47 CST; 18h ago
@@ -57,16 +57,16 @@
 >      成功返回：
 >
 >      ```bash
->    [affincbs@ODCDITCBS01 ~]$ yum list crontabs && which crontab && crontab -l
->    Loaded plugins: fastestmirror
->    Loading mirror speeds from cached hostfile
->  * base: ap.stykers.moe
->  * extras: ap.stykers.moe
->  * updates: ap.stykers.moe
->    Installed Packages
->    crontabs.noarch                               1.11-6.20121102git.el7           @anaconda
->    /usr/bin/crontab
->    no crontab for affincbs
+>      [affincbs@ODCDITCBS01 ~]$ yum list crontabs && which crontab && crontab -l
+>      Loaded plugins: fastestmirror
+>      Loading mirror speeds from cached hostfile
+>       * base: ap.stykers.moe
+>       * extras: ap.stykers.moe
+>       * updates: ap.stykers.moe
+>      Installed Packages
+>      crontabs.noarch                                                     1.11-6.20121102git.el7                                                     @anaconda
+>      /usr/bin/crontab
+>      no crontab for affincbs
 >      ```
 
 
