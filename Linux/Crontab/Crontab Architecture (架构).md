@@ -11,3 +11,20 @@
 | -------------- |
 | my Command     |
 
+1. 编辑crontab表单
+
+   `crontab -e`
+
+2. 查看crontab表单
+
+   `crontab -l`
+
+   成功返回
+
+   ```bash
+   [affincbs@ODCDITCBS01 ~]$ crontab -l
+   * * * * * my command
+   You have new mail in /var/spool/mail/affincbs
+   ```
+
+   
