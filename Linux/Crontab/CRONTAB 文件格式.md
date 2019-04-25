@@ -30,7 +30,7 @@ Author : Chunyang .Zhang
 > 
 > 2. 图像展示(image in chinese)
 > 
-> ![Crontab Scope](https://github.com/zhangshity/technote/blob/master/Resources/crontab_scope.jpg)
+> ![Crontab Scope](https://github.com/zhangshity/technote/blob/master/Resources/crontab_scope.png)
 > 
 > 
 > 
