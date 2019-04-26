@@ -18,18 +18,14 @@ Author : Chunyang . Zhang
 > > 3. 加入环境变量后即可使用对应命令
 > >
 > >    * 编辑crontab文件  
-> >
-> >      `crontab -e` 
-> >
 > >    
-> >      * 写入调用java环境变量的 crontab文件命令
-> >
-> >        ```
-> >        * * * * * echo `date` ======crontab环境变量测试===java -version====每分钟写入一次java版本 >>/app/affincbs/java.out && java -version 2>>/app/affincbs/java.out
-> >        ```
-> >
-> >        
+> >      `crontab -e`
 > >    
+> >    *  写入调用java环境变量的 crontab文件命令
+> >    
+> >      ```
+> >      * * * * * echo `date` ======crontab环境变量测试===java -version====每分钟写入一次java版本 >>/app/affincbs/java.out && java -version 2>>/app/affincbs/java.out
+> >      ```
 > >
 
 
