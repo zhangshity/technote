@@ -3,7 +3,7 @@
 
                                                                                   Written by CHUNYANG ZHANG
 ---
-![happy!](http://www.reactiongifs.com/cheering-minions/)
+![happy!]([https://github.com/zhangshity/technote/blob/master/Resources/giphy.gif))
 
 ### 仓库作用升级
 
