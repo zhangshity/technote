@@ -8,11 +8,12 @@ Calculation of the [Median](https://jmeter.apache.org/usermanual/glossary.html#M
 
 
 
-Starting with JMeter 2.12, you can configure the 3 percentile values you want to compute, this can be done by setting properties:
-
-- **aggregate_rpt_pct1**: defaults to 90th [percentile](https://jmeter.apache.org/usermanual/glossary.html#Percentile)
-- **aggregate_rpt_pct2**: defaults to 95th [percentile](https://jmeter.apache.org/usermanual/glossary.html#Percentile)
-- **aggregate_rpt_pct3**: defaults to 99th [percentile](https://jmeter.apache.org/usermanual/glossary.html#Percentile)
+> Starting with JMeter 2.12, you can configure the 3 percentile values you want to compute, this can be done by setting properties:
+>
+> - **aggregate_rpt_pct1**: defaults to 90th [percentile](https://jmeter.apache.org/usermanual/glossary.html#Percentile)
+> - **aggregate_rpt_pct2**: defaults to 95th [percentile](https://jmeter.apache.org/usermanual/glossary.html#Percentile)
+> - **aggregate_rpt_pct3**: defaults to 99th [percentile](https://jmeter.apache.org/usermanual/glossary.html#Percentile)
+>
 
 
 
