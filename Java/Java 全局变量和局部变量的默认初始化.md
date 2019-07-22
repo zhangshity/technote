@@ -19,6 +19,7 @@
 #### 例：
 
 * 例子详见https://github.com/zhangshity/aysos/blob/master/src/main/java/com/zcy/string_test/DemoStringMain.java   line167-177
+* 例子详见https://github.com/zhangshity/aysos/blob/master/src/main/java/com/zcy/variable/VariableValue.java
 
 ```java
 
