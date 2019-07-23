@@ -1,9 +1,0 @@
-Git电子书说明(Git e-books introduction)
-(此书被美国出版社出版，Amozon有售)
-
-# 默认Git文档路径下有中文版和英文版的电子书
-  (Chinese and English versions of e-books in the default Git document path)
-
-
-# 附属证书，非商业用途传播
-  (certificate, non-commercial use)
