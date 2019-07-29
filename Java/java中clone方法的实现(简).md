@@ -133,7 +133,7 @@
 
 
 
-![img]([https://github.com/zhangshity/technote/blob/master/Resources/clone_memory/clone%E5%8E%9F%E7%90%862.png](https://github.com/zhangshity/technote/blob/master/Resources/clone_memory/clone原理2.png))
+![img](https://github.com/zhangshity/technote/blob/master/Resources/clone_memory/clone原理2.png)
 
 不完全拷贝
 
