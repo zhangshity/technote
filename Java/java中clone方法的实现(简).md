@@ -74,7 +74,7 @@
 
 
 
-![img]([https://github.com/zhangshity/technote/blob/master/Resources/clone_memory/clone%E5%8E%9F%E7%90%861.png](https://github.com/zhangshity/technote/blob/master/Resources/clone_memory/clone原理1.png))
+![img](https://github.com/zhangshity/technote/blob/master/Resources/clone_memory/clone原理1.png)
 
 深拷贝与浅拷贝的原理
 
