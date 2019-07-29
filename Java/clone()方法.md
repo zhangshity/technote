@@ -9,11 +9,16 @@
 > #### Java中的 clone()方法必须实现 Cloneable 接口
 > clone方法是Java中根父类Object的一个方法:  
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`protected native Object clone() throws CloneNotSupportedException;`  
-  
+
 > ##### 当然此接口是native 修饰的,故其实现使用底层的C/C++
 
-### ====================================================================
+### ==========================================================
 * `[转]`
+
+* `「精」` java中clone方法的实现 
+
+  https://www.jianshu.com/p/04ff0a7bf52b
+
 * 1.Java的clone()：深复制与浅复制
 https://www.cnblogs.com/acode/p/6306887.html
 
