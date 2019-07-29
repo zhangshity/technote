@@ -1,7 +1,6 @@
 # java中clone方法的实现(简)
 
 [转]https://www.jianshu.com/p/04ff0a7bf52b
-[![96](https://upload.jianshu.io/users/upload_avatars/2959073/e51fa789009a.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96)](https://www.jianshu.com/u/68dd1fc81d3f) 
 
 > Java中仅有的创建对象的两种方式：
 > 
@@ -75,7 +74,7 @@
 
 
 
-![img](https://upload-images.jianshu.io/upload_images/2959073-a53016746496ba11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp)
+![img]([https://github.com/zhangshity/technote/blob/master/Resources/clone_memory/clone%E5%8E%9F%E7%90%861.png](https://github.com/zhangshity/technote/blob/master/Resources/clone_memory/clone原理1.png))
 
 深拷贝与浅拷贝的原理
 
@@ -134,7 +133,7 @@
 
 
 
-![img](https://upload-images.jianshu.io/upload_images/2959073-f28dd721fbfe57e5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/663/format/webp)
+![img]([https://github.com/zhangshity/technote/blob/master/Resources/clone_memory/clone%E5%8E%9F%E7%90%862.png](https://github.com/zhangshity/technote/blob/master/Resources/clone_memory/clone原理2.png))
 
 不完全拷贝
 
