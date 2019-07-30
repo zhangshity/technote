@@ -1,4 +1,4 @@
-# clone()方法
+# Java clone()方法概念
 
 * 浅克隆 shadow clone  : 只克隆 引用(reference)
 * 深克隆 deep clone    : 既克隆 引用(reference),又克隆 实例对象(instance)
@@ -13,11 +13,10 @@
 > ##### 当然此接口是native 修饰的,故其实现使用底层的C/C++
 
 ### ==========================================================
-* `[转]`
+`[转载]`
 
 * `「精」` java中clone方法的实现 
-
-  https://www.jianshu.com/p/04ff0a7bf52b
+https://www.jianshu.com/p/04ff0a7bf52b
 
 * 1.Java的clone()：深复制与浅复制
 https://www.cnblogs.com/acode/p/6306887.html

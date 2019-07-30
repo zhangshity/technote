@@ -1,4 +1,4 @@
-# java中clone方法的实现(简)
+# java clone方法的实现(简)
 
 [转]https://www.jianshu.com/p/04ff0a7bf52b
 
