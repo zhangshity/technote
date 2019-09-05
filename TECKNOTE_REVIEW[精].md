@@ -1,4 +1,4 @@
-# REVIEW
+# TECKNOTE_REVIEW
 
 @Author:Chunyang.Zhang
 
@@ -62,4 +62,11 @@
 
 3. 三次握手，四次挥手
 
-   ![三次握手](/Users/zhangchunyang/Documents/SourcetreeGitRepo/technote/Resources/三次握手.png)
+   ![三次握手]([https://github.com/zhangshity/technote/blob/master/Resources/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png](https://github.com/zhangshity/technote/blob/master/Resources/三次握手.png))
+
+###### 描述 
+
+* Client发送请求连接报文 [SYN=1,seq=x]    (seq=x 根据自身缓存计算出)
+* Server接收报文并返回响应报文 [SYN=1,ACK=1,seq=y,ack=x+1]    (seq=y 根据自身缓存计算出,ack=x+1与请求报文相关,因为客户段发送消耗了一个seq号,故x+1)
+* Client接收响应报文并返回响应报文 [ACK=1,seq=x+1,ack=y+1]    (Client的seq根据server响应报文seq+1,ack与响应报文有关,server消耗一个seq号故y+1)
+
