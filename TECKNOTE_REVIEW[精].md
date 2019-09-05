@@ -62,7 +62,7 @@
 
 3. 三次握手，四次挥手
 
-   ![三次握手]([https://github.com/zhangshity/technote/blob/master/Resources/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B.png](https://github.com/zhangshity/technote/blob/master/Resources/三次握手.png))
+   ![三次握手](https://github.com/zhangshity/technote/blob/master/Resources/三次握手.png)
 
 ###### 描述 
 
