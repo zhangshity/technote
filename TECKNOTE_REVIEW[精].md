@@ -6,8 +6,9 @@
 
 ## 2-1网络
 
-1. OSI参考模型：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层
-2. TPC/IP实现模型:物理层、网络层、传输层、应用层
+##### 1. OSI参考模型：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层
+
+##### 2. TPC/IP实现模型:物理层、网络层、传输层、应用层
 
 * 两种模型对比:
 
@@ -60,9 +61,9 @@
     </tr>
 </table>
 
+---
 
-
-3. 三次握手
+##### 3. 三次握手
 
 ![三次握手](https://github.com/zhangshity/technote/blob/master/Resources/三次握手.png)
 
@@ -85,11 +86,11 @@
 
 * 未响应发送探测报文，直到测试次数达到上限
 
+---
 
+##### 4. 四次挥手
 
-4. 四次挥手
-
-   ![](https://github.com/zhangshity/technote/blob/master/Resources/四次挥手.png)
+![](https://github.com/zhangshity/technote/blob/master/Resources/四次挥手.png)
 
 ###### 1 描述
 
