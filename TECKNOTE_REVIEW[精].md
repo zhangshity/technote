@@ -60,7 +60,7 @@
     </tr>
 </table>
 
----
+
 
 3. 三次握手
 
@@ -85,7 +85,7 @@
 
 * 未响应发送探测报文，直到测试次数达到上限
 
----
+
 
 4. 四次挥手
 
@@ -110,14 +110,26 @@
 
   ```shell
   ~ netstat -n | awk '/^tcp/{++S[$NF]}END{for(a in S) print a,S[a]}'
-  SYN_SENT 3
-  LAST_ACK 3
-  TIME_WAIT 23
-  CLOSE_WAIT 2
-  ESTABLISHED 22
+  SYN_SENT 8
+  LAST_ACK 1
+  CLOSE_WAIT 3
+  TIME_WAIT 3
+  ESTABLISHED 25
   ```
-
-  如果**CLOSE_WAIT**数量太多，则要判断是否程序代码中未释放连接
 
 ---
 
+##### 5. UDP和TCP区别
+
+1. 面向连接、无连接
+2. 可靠性
+3. 有序性
+4. 速度
+5. 量级(报文头 TPC 20Byte、UDP 8Byte)
+
+---
+
+##### 6. TCP滑动窗口
+
+1. RTT
+2. RTO
