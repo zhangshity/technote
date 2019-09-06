@@ -60,7 +60,7 @@
     </tr>
 </table>
 
-
+---
 
 3. 三次握手
 
@@ -85,8 +85,39 @@
 
 * 未响应发送探测报文，直到测试次数达到上限
 
-
+---
 
 4. 四次挥手
 
-   ![]()
+   ![](https://github.com/zhangshity/technote/blob/master/Resources/四次挥手.png)
+
+###### 1 描述
+
+* Client发送请求断开报文 `[FIN=1,seq=u]`    (seq=u根据自身计算而出)
+* Server接收标并发送响应报文 `[ACK=1,seq=v,ack=u+1]`    (为什么没有FIN标志?因为被动断开的一方可能还有数据要传输,最后传输完成后才进行FIN标志响应)
+* Server数据传输完毕发送响应请求断开报文 `[FIN=1,ACK=1,seq=w,ack=u+1]`    (因为两个响应间可能还有数据传输,故seq会改变,因此假设成w. 两个响应报文均是对同一个请求断开报文响应故ack相同=u+1)
+
+* Client接收响应报文并响应 `[ACK=1,seq=u+1,ack=w+1]`    (seq根据响应确定=u+1,ack根据响应=w+1)
+
+###### 2 为什么Client发送ACK要等待2MSL?
+
+* 给Server足够的接收响应时间
+* 保证连接有序不混乱
+
+###### 3 Linux频繁的CLOSE_WAIT状态
+
+* 查看CLOSE_WAIT
+
+  ```shell
+  ~ netstat -n | awk '/^tcp/{++S[$NF]}END{for(a in S) print a,S[a]}'
+  SYN_SENT 3
+  LAST_ACK 3
+  TIME_WAIT 23
+  CLOSE_WAIT 2
+  ESTABLISHED 22
+  ```
+
+  如果**CLOSE_WAIT**数量太多，则要判断是否程序代码中未释放连接
+
+---
+
