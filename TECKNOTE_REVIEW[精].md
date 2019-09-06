@@ -4,7 +4,7 @@
 
 ---
 
-##### 2-1网络
+## 2-1网络
 
 1. OSI参考模型：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层
 2. TPC/IP实现模型:物理层、网络层、传输层、应用层
@@ -60,13 +60,33 @@
     </tr>
 </table>
 
-3. 三次握手，四次挥手
 
-   ![三次握手](https://github.com/zhangshity/technote/blob/master/Resources/三次握手.png)
 
-###### 描述 
+3. 三次握手
 
-* Client发送请求连接报文 [SYN=1,seq=x]    (seq=x 根据自身缓存计算出)
-* Server接收报文并返回响应报文 [SYN=1,ACK=1,seq=y,ack=x+1]    (seq=y 根据自身缓存计算出,ack=x+1与请求报文相关,因为客户段发送消耗了一个seq号,故x+1)
-* Client接收响应报文并返回响应报文 [ACK=1,seq=x+1,ack=y+1]    (Client的seq根据server响应报文seq+1,ack与响应报文有关,server消耗一个seq号故y+1)
+![三次握手](https://github.com/zhangshity/technote/blob/master/Resources/三次握手.png)
 
+###### 1 描述 
+
+* Client发送请求连接报文 `[SYN=1,seq=x]`    (seq=x 根据自身缓存计算出)
+* Server接收报文并返回响应报文 `[SYN=1,ACK=1,seq=y,ack=x+1]`    (seq=y 根据自身缓存计算出,ack=x+1与请求报文相关,因为客户段发送消耗了一个seq号,故x+1)
+* Client接收响应报文并返回响应报文 `[ACK=1,seq=x+1,ack=y+1]`    (Client的seq根据server响应报文seq+1,ack与响应报文有关,server消耗一个seq号故y+1)
+
+###### 2 隐患--SYN超时
+
+* Server收到Client的**[SYN]**，回复**[SYN,ACK]**的后未收到Client的**[ACK]**确认，会不断重试直至超时
+* Linux系统会尝试5次，每次重试，等待翻倍，1+2+4+8+16+32=63秒
+
+###### 3 SYN Flood 防护机制
+
+* 防止恶意发送SYN，消耗seq，(Linux加入 SYN cookie机制)
+
+###### 4 保活机制
+
+* 未响应发送探测报文，直到测试次数达到上限
+
+
+
+4. 四次挥手
+
+   ![]()
