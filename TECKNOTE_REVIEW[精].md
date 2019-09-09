@@ -132,5 +132,126 @@
 
 ##### 6. TCP滑动窗口
 
-1. RTT
-2. RTO
+1. RTT: 发送一个数据包到接收到对应的ACK，所花费的时间
+2. RTO: 重传时间间隔
+3. TCP的滑动窗口 ：流量控制和乱序重排
+4.  
+
+---
+
+##### 7. HTTP
+
+1. 请求响应模型：
+   * Client连接到Web Server
+   * 发送HTTP request (TCP套接字)
+   * Server接收到request并返回HTTP response
+   * Server释放TCP连接 (取决于模式：CLOSR_WAIT服务器主动断开，keep-alive则保持一段时间连接)
+   * Client解析HTML内容
+
+2. 游览器键入URL，回车后经历的流程
+   * DNS解析 (逐层解析找到ip地址返回)
+   * TCP连接
+   * 发送HTTP请求
+   * Sever处理请求并返回HTTP报文
+   * 游览器解析渲染
+   * 结束连接
+   
+3. HTTP状态码
+   * 1xx : 指示信息--表示请求已接收，继续处理
+   * 2xx : 成功--表示请求已被成功接收、理解、接收
+   * 3xx : 重定向--要完成请求必须更进一步操作
+   * 4xx : 客户端错误--有语法错误或者请求无法实现 (401未授权403拒绝访问404URL或请求资源不存在)
+   * 5xx : 服务器错误--服务器未能实现合法的请求 (500服务器错误503服务器不能处理请求,一段时间后可能会恢复)
+
+4. GET请求和POST请求的区别 (三个层面)
+
+   * Http报文层面 : GET将请求信息放在URL里，以`?`隔开。  POST将请求信息放在报文体中
+   * 数据库层面 : GET符合幂等性和安全性，POST不符合
+   * 其他层面 : GET可以被缓存、被存储，而POST不行
+
+   [详情贴]https://www.cnblogs.com/jiangxinyang/p/8453827.html
+
+5. Cookie和Session的
+
+   * Cookie简介
+
+     * Server发给Client的特殊信息，以文本形式放在客户端
+     * Client再次请求，会回发Cookie
+     * Server接收到Cookie后，会解析Cookie生成与客户端相对应的内容
+
+   * Session简介
+
+     * Server端机制，在服务器上保存信息
+     * 解析Client请求并操作Session id，按需保存状态信息
+
+   * Session实现方式
+   
+     * 使用Cookie实现 (客户端Cookie保存服务器发来的Session id,下次请求回传Cookie其实就包含Session id)
+   
+     * 使用URL回写实现 (所有连接都携带Session参数，任何连接跳转都带着Session id回服务器)
+   
+       ![](https://github.com/zhangshity/technote/blob/master/Resources/Session的Cookie实现.png)
+   
+   * Cookie和Session的区别
+   
+     * Cookie数据放在客户端浏览器上，Session数据放在服务器上
+     * Session相对Cookie更安全
+   
+     * 若考虑减轻服务器负担，应当使用Cookie
+   
+   ---
+   
+   ##### 8. HTTP和HTTPS
+   
+   1. HTTP (全称：HyperText Transfer Protocol，超文本传输协议)
+   
+   2. HTTPS (全称：Hyper Text Transfer Protocol over Secure Socket Layer 或 Hypertext Transfer Protocol Secure，超文本传输安全协议)
+   
+   3. SSL (全称：Security Socket Layer,安全套接层，SSL3.0改名为TSL)
+   
+      加密方式
+   
+      * 对称加密: 加密解密使用同一个秘钥(AES)
+      * 非对称加密: 加密解密使用的秘钥不同 (RSA)
+      * 哈希算法(MD5)
+      
+      * 数字签名
+      
+   4. HTTPS数据传输流程
+   
+      * 浏览器讲支持的加密算法信息发送给服务器
+      * 服务器选择一套浏览器支持的加密算法，以证书的形式回发浏览器
+   
+      * 浏览器验证证书合法性，并结合证书公钥加密信息发送给服务器
+      * 服务器使用私钥解密信息，验证哈希，加密响应消息回发游览器
+   
+      * 游览器解密响应消息，并对消息进行验真，之后进行加密交互数据
+   
+   5. HTTP和HTTPS区别
+      * HTTPS需要到CA申请证书，HTTP不需要
+      * HTTPS密文传输，HTTP明文传输
+      * 连接方式不同，HTTPS默认使用443端口，HTTP使用80端口
+      * HTTPS = HTTP + 加密 + 认证 + 完整性保护，较HTTP安全
+   
+   ---
+   
+   ##### 9. Socket
+   
+   1. 定义：Socket是对TCP/IP协议的抽象，是操作系统对外开放的接口
+   
+   2. Socket通信流程：
+   
+      ![socket](https://github.com/zhangshity/technote/blob/master/Resources/socket通信流程.png)
+   
+   3. Java编程https://github.com/zhangshity/aysos/tree/master/src/main/java/com/zcy/net
+
+---
+
+
+
+
+
+## 3-1数据库
+
+##### 1. 
+
