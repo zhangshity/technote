@@ -67,6 +67,16 @@ locale  (locale)                   场景,语言编码环境
 echo    (echo)                     回声,回显.在屏幕显示一段文字
 cat     (concatenate)              显示或把多个文本文件连接起来
 
+find                               查找特定文件
+                                              -name "hello.java" 查找当前目录下的文件
+                                              / -name "hell*" 模糊查找特定目录下的文件
+                                              / -iname "hell*" 不分大小写模糊查找特定目录下的文件
+
+grep    (Global Regular Expression Print) 全局正则表达式
+                                              grep "abc" hello* 查找内容包含abc的hello开头文件
+
+|                                  管道操纵符(连接命令,前指令输出作为后指令输入)  
+
 tail                               查看文件的内容(filename.log)  
                                               -f 循环读取   
 
