@@ -356,7 +356,7 @@
 
 * Spring IOC
 
-  ![](https://github.com/zhangshity/technote/blob/master/Resources/Spring IOC.png)
+  ![](https://github.com/zhangshity/technote/blob/master/Resources/Spring%20IOC.png)
 
   * 支持的功能：依赖注入、依赖检查、自动装配、支持集合、指定初始化方法和销毁方法、支持回调方法
 
