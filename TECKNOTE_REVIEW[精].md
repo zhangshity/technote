@@ -354,6 +354,20 @@
   * ![](https://github.com/zhangshity/technote/blob/master/Resources/IOC和DI:DL关系1.png)
   * ![](https://github.com/zhangshity/technote/blob/master/Resources/IOC和DI:DL关系2.png)
 
+* Spring IOC
+
+  ![](https://github.com/zhangshity/technote/blob/master/Resources/Spring IOC.png)
+
+  * 支持的功能：依赖注入、依赖检查、自动装配、支持集合、指定初始化方法和销毁方法、支持回调方法
+
+  * 核心接口：BeanFactory、ApplicationContext
+
+  * BeanFactory : 1.提供IOC的配置机制 2.包含Bean的各种定义,便于实例化Bean 3.建立Bean之间的依赖关系
+
+    ![](https://github.com/zhangshity/technote/blob/master/Resources/BeanFactory体系结构.png)
+
+  * 
+
 ##### 2.
 
 
