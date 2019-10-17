@@ -303,7 +303,7 @@
 
 
 
-
+ 
 
 
 
@@ -313,3 +313,41 @@
 
 ---
 
+
+## 11 Spring
+
+##### 1. IOC
+
+* IOC原理
+  * 上层依赖下层
+    ![](https://github.com/zhangshity/technote/blob/master/Resources/上层依赖下层-原始.png)
+  
+  * 上层依赖下层-修改下层类导致的情况(大量的改动)
+  
+    ![](https://github.com/zhangshity/technote/blob/master/Resources/上层依赖下层-参数修改.png)
+  
+  * 利用DI的思想(底层类作为参数传递给上层类)
+  
+    ![](https://github.com/zhangshity/technote/blob/master/Resources/依赖注入-原始.png)
+  
+  * 利用DI的思想-修改下层类
+  
+    ![](https://github.com/zhangshity/technote/blob/master/Resources/依赖注入-参数修改.png)
+  
+  * **总结**
+  
+    普通的上层类依赖下层类的写法，看似简单，但如果依赖的类太多，如果要做改动其工作量是不可接收的，几乎没有可维护性。
+  
+    而利用依赖注入的思想，把下层类作为参数传递(注入)给上层类，能很好的解耦，下层类的改动几乎不影响上层类的代码结构。
+  
+    但是这样会不停的new新的对象来传递给上层，工作量也是很繁琐，这也就是spring IOC Container要做得工作—负责创建对象，并对操作者隐藏其步骤，只用关心其业务逻辑即可。
+* DI : 底层类作为参数传递给上层类，实现上层对下层的控制    
+* IOC Container及优势：
+  * 避免在各处new来创建类，并且可以统一维护
+  * 创建实例的时候不需要了解其中的细节
+
+##### 2.
+
+
+
+---
