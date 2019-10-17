@@ -341,10 +341,18 @@
     而利用依赖注入的思想，把下层类作为参数传递(注入)给上层类，能很好的解耦，下层类的改动几乎不影响上层类的代码结构。
   
     但是这样会不停的new新的对象来传递给上层，工作量也是很繁琐，这也就是spring IOC Container要做得工作—负责创建对象，并对操作者隐藏其步骤，只用关心其业务逻辑即可。
+  
 * DI : 底层类作为参数传递给上层类，实现上层对下层的控制    
+
 * IOC Container及优势：
   * 避免在各处new来创建类，并且可以统一维护
   * 创建实例的时候不需要了解其中的细节
+  * ![](https://github.com/zhangshity/technote/blob/master/Resources/IOC容器优势.png)
+  
+* IOC/DL/DI的关系
+
+  * ![](https://github.com/zhangshity/technote/blob/master/Resources/IOC和DI:DL关系1.png)
+  * ![](https://github.com/zhangshity/technote/blob/master/Resources/IOC和DI:DL关系2.png)
 
 ##### 2.
 
