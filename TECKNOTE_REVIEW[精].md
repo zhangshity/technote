@@ -365,7 +365,7 @@
   * BeanFactory (顶层接口) : 
 
     > 1.提供IOC的配置机制
-  >
+    >
     > 2.包含Bean的各种定义,便于实例化Bean
     >
     > 3.建立Bean之间的依赖关系
@@ -396,9 +396,9 @@
   
   * BeanFactory和ApplicationContext的比较：
   
-    > BeanFactory是Spring框架的基础设施，面向Spring
+    > 1.BeanFactory是Spring框架的基础设施，面向Spring
     >
-    > ApplicationContext面向使用Spring框架的开发者
+    > 2.ApplicationContext面向使用Spring框架的开发者
     >
     > ![](https://github.com/zhangshity/technote/blob/master/Resources/BeanFactory%E5%92%8CApplicationContext%E7%9A%84%E5%85%B3%E7%B3%BB.png)
 
