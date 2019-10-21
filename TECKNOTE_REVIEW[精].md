@@ -360,13 +360,47 @@
 
   * 支持的功能：依赖注入、依赖检查、自动装配、支持集合、指定初始化方法和销毁方法、支持回调方法
 
-  * 核心接口：BeanFactory、ApplicationContext
+  * 核心接口：**BeanFactory**、**ApplicationContext**
 
-  * BeanFactory : 1.提供IOC的配置机制 2.包含Bean的各种定义,便于实例化Bean 3.建立Bean之间的依赖关系
+  * BeanFactory (顶层接口) : 
 
-    ![](https://github.com/zhangshity/technote/blob/master/Resources/BeanFactory体系结构.png)
-
-  * 
+    > 1.提供IOC的配置机制
+  >
+    > 2.包含Bean的各种定义,便于实例化Bean
+    >
+    > 3.建立Bean之间的依赖关系
+    >
+    > ![](https://github.com/zhangshity/technote/blob/master/Resources/BeanFactory体系结构.png)
+  
+  * ApplicationContext (继承多个接口) : 
+  
+    ```java
+    public interface ApplicationContext extends EnvironmentCapable,ListableBeanFactory, HierarchicalBeanFactory,MessageSource,ApplicationEventPublisher,ResourcePatternResolver{
+    	String getId();
+    	String getApplicationName();
+    	String getDisplayName();
+    	long getStartupDate();
+    	@Nullable
+    	ApplicationContext getParent();
+    	AutowireCapableBeanFactory getAutowireCapableBeanFactory() throws IllegalStateException;
+    }
+    ```
+  
+    > 1.继承<u>BeanFactory</u>接口：能够管理和装配Bean 
+    >
+    > 2.继承<u>ResourcePatternResolver</u>接口：能够加载资源文件 
+    >
+    > 3.继承<u>MessageSource</u>接口：能够实现国际化等功能 
+    >
+    > 4.继承<u>ApplicationEventPublisher</u>接口：能够注册监听器，实现监听机制
+  
+  * BeanFactory和ApplicationContext的比较：
+  
+    > BeanFactory是Spring框架的基础设施，面向Spring
+    >
+    > ApplicationContext面向使用Spring框架的开发者
+    >
+    > ![](https://github.com/zhangshity/technote/blob/master/Resources/BeanFactory%E5%92%8CApplicationContext%E7%9A%84%E5%85%B3%E7%B3%BB.png)
 
 ##### 2.
 
