@@ -318,7 +318,7 @@
 
 ##### 1. IOC
 
-* IOC原理
+* IOC原理(Inversion of Control)
   * 上层依赖下层
     ![](https://github.com/zhangshity/technote/blob/master/Resources/上层依赖下层-原始.png)
   
@@ -401,8 +401,36 @@
     > 2.ApplicationContext面向使用Spring框架的开发者
     >
     > ![](https://github.com/zhangshity/technote/blob/master/Resources/BeanFactory%E5%92%8CApplicationContext%E7%9A%84%E5%85%B3%E7%B3%BB.png)
+    
+  * refresh方法
+  
+    > 1.为IOC容器及Bean的生命周期管理提供条件
+    >
+    > 2.刷新Spring上下文信息，定义上下文加载流程
+  
+  * getBean方法
+  
+    > 代码逻辑：
+    >
+    > 1.转换beanName 2.从缓存中加载实例 3.实例化Bean 4.检测parentBeanFactory 5.初始化依赖的Bean 6.创建Bean
+  
+  * Spring的作用域
+  
+    > singleton: Spring的默认作用域，容器内拥有唯一的Bean实例
+    >
+    > prototype: 针对每个getBean请求，容器都会创建一个Bean实例
+    >
+    > request: 会为每个Http请求创建一个Bean实例
+    >
+    > session: 会为每个session创建一个Bean实例
+    >
+    > globalSession: 会为每个全局的Http Session创建一个Bean实例,该作用域仅对Portlet有效
 
-##### 2.
+##### 2.AOP原理
+
+* AOP原理(Aspect Oriented Programming)
+
+
 
 
 
