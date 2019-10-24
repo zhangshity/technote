@@ -430,6 +430,41 @@
 
 * AOP原理(Aspect Oriented Programming)
 
+  * 三种织入方式
+
+    > 编译时织入：需要特殊的Java编译器，如AspectJ
+    >
+    > 类加载织入：需要特殊的Java编译器，如ApectJ和AspectWerkz
+    >
+    > 运行时织入：Spring采取的方式，通过动态代理的方式，实现简单
+
+  * AOP的实现(JdkProxy和Cglib)
+
+    > 由AopProxyFactory根据AdvisedSupport对象的配置来决定
+    > 默认策略如果目标类是接口，则用JDKProxy来实现，否则用后者
+    >
+    > JDKProxy的核心：InvocationHandler接口和Proxy类
+    >
+    > Cglib：以继承的方式动态生成目标类的代理
+    >
+    > 
+    >
+    > JDKProxy：通过Java的内部反射机制实现
+    >
+    > Cglib：借助ASM实现
+    >
+    > 反射机制在生成类的过程中比较高效
+    >
+    > ASM在生成类之后的执行过程中比较高效
+
+
+
+
+
+
+
+
+
 
 
 
