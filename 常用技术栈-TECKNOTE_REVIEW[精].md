@@ -303,7 +303,22 @@
 
 
 
- 
+
+
+---
+## 6 JVM
+
+##### 1. ClassLoader
+
+* 种类
+
+  > 1.BootStrapClassLoader：C++编写，加载核心库java.*
+  >
+  > 2.ExtClassLoader：Java编写，加载扩展库javax.*
+  >
+  > 3.AppClassLoader：Java编写，加载程序所在目录
+  >
+  > 4.自定义ClassLoader：Java编写，定制化加载
 
 
 
