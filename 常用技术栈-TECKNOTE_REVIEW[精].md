@@ -320,9 +320,9 @@
   >
   > 4.自定义ClassLoader：Java编写，定制化加载
 
+##### 2.JVM内存模型
 
-
-
+![](https://github.com/zhangshity/technote/blob/master/Resources/JVM内存模型.png)
 
 
 
