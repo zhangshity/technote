@@ -322,7 +322,8 @@
 
 ##### 2.JVM内存模型
 
-![](https://github.com/zhangshity/technote/blob/master/Resources/JVM内存模型.png)
+* ![](https://github.com/zhangshity/technote/blob/master/Resources/JVM内存模型.png)
+* 
 
 
 
