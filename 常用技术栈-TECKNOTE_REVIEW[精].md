@@ -509,4 +509,9 @@
 
 
 
-HashMap 1.8和1.7对比：详见简书[转]https://www.jianshu.com/p/8324a34577a0
+HashMap 1.8和1.7对比：
+
+* 详见简书[转]https://www.jianshu.com/p/8324a34577a0
+
+* https://github.com/zhangshity/technote/blob/master/Java/HashMap源码分析(jdk1.8).md
+
