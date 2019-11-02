@@ -486,3 +486,27 @@
 
 
 ---
+
+## 补充
+
+##### 1.HashMap和HashTable
+
+> * 共性：
+>   * 都implements了<u>Map</u>接口
+>   * 都可自动扩容
+>   * 底层都是数组+链表 (1.8之后HashMap为数组+链表+红黑树)
+>   * 都可自动扩容
+
+
+
+
+> * 区别：
+>   
+>   * HashMap extends了<u>AbstractMap</u>抽象类，HashTable extends了<u>Dictionary</u>抽象类
+>   
+>   * HashMap是线程不安全的，HashTable是线程安全的
+>   * 遍历方式不同
+
+
+
+HashMap 1.8和1.7对比：详见简书[转]https://www.jianshu.com/p/8324a34577a0
