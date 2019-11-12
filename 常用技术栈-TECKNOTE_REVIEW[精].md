@@ -301,6 +301,16 @@
 * 用户态（用户空间)
 * 内核态  (内核)
 
+##### 2. 进程状态
+
+* 基本三态(就绪、执行、阻塞)
+![](https://github.com/zhangshity/technote/blob/master/Resources/%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B%E5%9B%BE3.jpg)
+
+* 加入挂起suspend 
+![](https://github.com/zhangshity/technote/blob/master/Resources/%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E5%9B%BE1.jpg)
+* 完整状态(包括创建和消亡) 
+![](https://github.com/zhangshity/technote/blob/master/Resources/%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E5%9B%BE2.jpeg)
+
 
 
 
@@ -324,6 +334,118 @@
 
 * ![](https://github.com/zhangshity/technote/blob/master/Resources/JVM内存模型.png)
 * 
+
+
+
+## 7 GC
+
+
+
+
+
+
+
+---
+
+## 8 Java多线程与并发
+
+* [runoob教程参考]https://www.runoob.com/java/java-multithreading.html
+
+* [OpenJDK源码]http://hg.openjdk.java.net/
+
+  > ![Java线程学习框架终极版](https://github.com/zhangshity/technote/blob/master/Resources/Java%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E6%A1%86%E6%9E%B6%E7%BB%88%E6%9E%81%E7%89%88.png)
+
+##### 1. 线程和进程的区别
+
+* 进程和线程的由来
+
+  ![proces-status](https://github.com/zhangshity/technote/blob/master/Resources/%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%E7%9A%84%E7%94%B1%E6%9D%A5.png)
+  
+* 进程(Process)是资源分配的最小单位，线程(Thread)是CPU调度的最小单位
+
+  * 所有与进程相关的资源都被记录在PCB
+  * 进程是抢占处理机的调度单位。线程属于某个进程，共享其资源
+  * 线程只由堆栈寄存器、程序计数器和TCB组成
+
+##### 2. 线程的状态
+
+* 6个状态
+
+  > **①初始(NEW)**：新创建了一个线程对象，但还没有调用start()方法。
+  > ②**运行(RUNNABLE)**：Java线程中将就绪（ready）和运行中（running）两种状态笼统的成为“运行”。
+  > 线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取cpu 的使用权，此时处于就绪状态（ready）。就绪状态的线程在获得cpu 时间片后变为运行中状态（running）。
+  > ③**阻塞(BLOCKED)**：表线程阻塞于锁。
+  > ④**等待(WAITING)**：进入该状态的线程需要等待其他线程做出一些特定动作（通知或中断）。
+  > ⑤**超时等待(TIME_WAITING)**：该状态不同于WAITING，它可以在指定的时间内自行返回。
+  >
+  > ⑥**终止(TERMINATED)**：表示该线程已经执行完毕。
+
+* [线程状态切换参考贴]https://www.cnblogs.com/cowboys/p/9315331.html
+
+* 线程状态转换图解
+
+  >![线程状态图解1](https://github.com/zhangshity/technote/blob/master/Resources/java%E7%BA%BF%E7%A8%8B%E5%9B%BE2.png)
+  >
+  >![线程状态图解2](https://github.com/zhangshity/technote/blob/master/Resources/Java%E7%BA%BF%E7%A8%8B%E5%91%A8%E6%9C%9F%E5%9B%BE1.png)
+
+* ...
+
+##### 3.线程的优先级(Priority)
+
+* Java 线程的优先级是一个整数，其取值范围是 1 (Thread.MIN_PRIORITY)  —  10 (Thread.MAX_PRIORITY)
+
+* 默认情况下，每一个线程都会分配一个优先级 NORM_PRIORITY（5）。
+
+* 具有较高优先级的线程对程序更重要，并且应该在低优先级的线程之前分配处理器资源。但是，线程优先级不能保证线程执行的顺序，而且非常依赖于平台。
+
+##### 4. 创建线程的三种方法
+
+* 继承Thread类
+* 实现Runnable接口
+* 通过 Callable 和 Future 创建线程
+
+##### 5. start() 和 run() 区别
+
+- **1.start()** 方法来启动线程，真正实现了多线程运行。这时无需等待 run 方法体代码执行完毕，可以直接继续执行下面的代码；通过调用 Thread 类的 start() 方法来启动一个线程， 这时此线程是处于就绪状态， 并没有运行。 然后通过此 Thread 类调用方法 run() 来完成其运行操作的， 这里方法 run() 称为线程体，它包含了要执行的这个线程的内容， run 方法运行结束， 此线程终止。然后 CPU 再调度其它线程。
+
+  ```java
+      public synchronized void start() {
+          if (threadStatus != 0)
+              throw new IllegalThreadStateException();
+          group.add(this);
+          boolean started = false;
+          try {
+              start0();
+              started = true;
+          } finally {...}
+      }
+  
+      private native void start0();
+  ```
+
+  
+
+- **2.run()** 方法当作普通方法的方式调用。程序还是要顺序执行，要等待 run 方法体执行完毕后，才可继续执行下面的代码； 程序中只有主线程——这一个线程， 其程序执行路径还是只有一条， 这样就没有达到写线程的目的。
+
+##### 6. sleep() 和 wait()区别
+
+> [代码详解]https://github.com/zhangshity/aysos/blob/master/src/main/java/com/zcy/thread/wait_sleep_notify/WaitSleepNotifyDemo.java
+
+* sleep(long millis) 是Thread类下的 static native方法
+* wait() 是Object下的final native方法
+* 
+
+##### 7. notify() 和notifyAll()区别
+
+> [代码详解]https://github.com/zhangshity/aysos/blob/master/src/main/java/com/zcy/thread/wait_sleep_notify/WaitSleepNotifyDemo.java
+
+
+
+
+
+
+
+
 
 
 
@@ -526,3 +648,25 @@ HashMap 1.8和1.7对比：
 
 ```
 
+> ##### 重写与重载之间的区别
+>
+> | 区别点   | 重载方法 | 重写方法                                       |
+> | :------- | :------- | :--------------------------------------------- |
+> | 参数列表 | 必须修改 | 一定不能修改                                   |
+> | 返回类型 | 可以修改 | 一定不能修改                                   |
+> | 异常     | 可以修改 | 可以减少或删除，一定不能抛出新的或者更广的异常 |
+> | 访问     | 可以修改 | 一定不能做更严格的限制（可以降低限制）         |
+>
+> ------
+>
+> ##### 总结
+>
+> 方法的重写(Overriding)和重载(Overloading)是java多态性的不同表现，重写是父类与子类之间多态性的一种表现，重载可以理解成多态的具体表现形式。
+>
+> - (1)方法重载是一个类中定义了多个方法名相同,而他们的参数的数量不同或数量相同而类型和次序不同,则称为方法的重载(Overloading)。
+> - (2)方法重写是在子类存在方法与父类的方法的名字相同,而且参数的个数与类型一样,返回值也一样的方法,就称为重写(Overriding)。
+> - (3)方法重载是一个类的多态性表现,而方法重写是子类与父类的一种多态性表现。
+>
+> ![img](https://www.runoob.com/wp-content/uploads/2013/12/overloading-vs-overriding.png)
+>
+> ![img](https://www.runoob.com/wp-content/uploads/2013/12/20171102-1.jpg)
