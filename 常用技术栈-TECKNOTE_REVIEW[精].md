@@ -305,7 +305,6 @@
 
 * 基本三态(就绪、执行、阻塞)
 ![](https://github.com/zhangshity/technote/blob/master/Resources/%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B%E5%9B%BE3.jpg)
-
 * 加入挂起suspend 
 ![](https://github.com/zhangshity/technote/blob/master/Resources/%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E5%9B%BE1.jpg)
 * 完整状态(包括创建和消亡) 
@@ -372,10 +371,14 @@
 * 6个状态
 
   > **①初始(NEW)**：新创建了一个线程对象，但还没有调用start()方法。
+  >
   > ②**运行(RUNNABLE)**：Java线程中将就绪（ready）和运行中（running）两种状态笼统的成为“运行”。
   > 线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取cpu 的使用权，此时处于就绪状态（ready）。就绪状态的线程在获得cpu 时间片后变为运行中状态（running）。
+  >
   > ③**阻塞(BLOCKED)**：表线程阻塞于锁。
+  >
   > ④**等待(WAITING)**：进入该状态的线程需要等待其他线程做出一些特定动作（通知或中断）。
+  >
   > ⑤**超时等待(TIME_WAITING)**：该状态不同于WAITING，它可以在指定的时间内自行返回。
   >
   > ⑥**终止(TERMINATED)**：表示该线程已经执行完毕。
@@ -386,23 +389,27 @@
 
   >![线程状态图解1](https://github.com/zhangshity/technote/blob/master/Resources/java%E7%BA%BF%E7%A8%8B%E5%9B%BE2.png)
   >
+  >​        线程状态转换图解 [1]
+  >
   >![线程状态图解2](https://github.com/zhangshity/technote/blob/master/Resources/Java%E7%BA%BF%E7%A8%8B%E5%91%A8%E6%9C%9F%E5%9B%BE1.png)
+  >
+  >​        线程状态转换图解 [2]
 
 * ...
 
 ##### 3.线程的优先级(Priority)
 
-* Java 线程的优先级是一个整数，其取值范围是 1 (Thread.MIN_PRIORITY)  —  10 (Thread.MAX_PRIORITY)
+* Java 线程的优先级是一个整数，其取值范围是 **1 (Thread.MIN_PRIORITY)  —  10 (Thread.MAX_PRIORITY)**
 
-* 默认情况下，每一个线程都会分配一个优先级 NORM_PRIORITY（5）。
+* 默认情况下，每一个线程都会分配一个优先级 **NORM_PRIORITY（5）**。
 
 * 具有较高优先级的线程对程序更重要，并且应该在低优先级的线程之前分配处理器资源。但是，线程优先级不能保证线程执行的顺序，而且非常依赖于平台。
 
 ##### 4. 创建线程的三种方法
 
-* 继承Thread类
-* 实现Runnable接口
-* 通过 Callable 和 Future 创建线程
+* 继承`Thread`类
+* 实现`Runnable`接口
+* 通过 `Callable` 和` Future `创建线程
 
 ##### 5. start() 和 run() 区别
 
@@ -430,14 +437,19 @@
 ##### 6. sleep() 和 wait()区别
 
 > [代码详解]https://github.com/zhangshity/aysos/blob/master/src/main/java/com/zcy/thread/wait_sleep_notify/WaitSleepNotifyDemo.java
-
-* sleep(long millis) 是Thread类下的 static native方法
-* wait() 是Object下的final native方法
-* 
+>
+> * sleep(long millis) 是Thread类下的 static native方法
+> * sleep() 只是让出CPU，使线程进入阻塞状态，并不影响锁
+> * wait() 是Object下的final native方法
+>
+> * wait()    1.解除线程对此锁的占用 (释放锁)    2.使占用锁的线程进入等待队列    3.占用锁的线程让出CPU
 
 ##### 7. notify() 和notifyAll()区别
 
 > [代码详解]https://github.com/zhangshity/aysos/blob/master/src/main/java/com/zcy/thread/wait_sleep_notify/WaitSleepNotifyDemo.java
+>
+> * 锁池 EntryList
+> * 等待池WaitSet
 
 
 
