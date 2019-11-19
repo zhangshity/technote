@@ -416,22 +416,17 @@
 - **1.start()** 方法来启动线程，真正实现了多线程运行。这时无需等待 run 方法体代码执行完毕，可以直接继续执行下面的代码；通过调用 Thread 类的 start() 方法来启动一个线程， 这时此线程是处于就绪状态， 并没有运行。 然后通过此 Thread 类调用方法 run() 来完成其运行操作的， 这里方法 run() 称为线程体，它包含了要执行的这个线程的内容， run 方法运行结束， 此线程终止。然后 CPU 再调度其它线程。
 
   ```java
-      public synchronized void start() {
-          if (threadStatus != 0)
-              throw new IllegalThreadStateException();
-          group.add(this);
-          boolean started = false;
+  public synchronized void start() { ......
           try {
-              start0();
-              started = true;
-          } finally {...}
-      }
+              start0(); ......
+          } finally {......}
+  }
   
-      private native void start0();
+  private native void start0();
   ```
-
   
-
+  
+  
 - **2.run()** 方法当作普通方法的方式调用。程序还是要顺序执行，要等待 run 方法体执行完毕后，才可继续执行下面的代码； 程序中只有主线程——这一个线程， 其程序执行路径还是只有一条， 这样就没有达到写线程的目的。
 
 ##### 6. sleep() 和 wait()区别
@@ -448,8 +443,99 @@
 
 > [代码详解]https://github.com/zhangshity/aysos/blob/master/src/main/java/com/zcy/thread/wait_sleep_notify/WaitSleepNotifyDemo.java
 >
+> 均是Object类下的final native方法
+>
+> ```java
+> public final native void notify();
+> public final native void notifyAll();
+> ```
+>
 > * 锁池 EntryList
 > * 等待池WaitSet
+
+* notifyAll() ：会让所有处于等待池中的线程全部进入锁池 去竞争获取锁的机会 (已经进入锁池线程不能回到等待池，只能等待其他机会获取锁)
+* notify() ：只会随机选取一个处于等待池中的线程进入锁池去竞争获取锁的机会
+
+##### 8. yield()
+
+> * **概念**：当调用`Thread.yield()`函数时，会给线程调度器一个当前线程愿意让出当前CPU使用资源的暗示。(线程调度器可能会忽略此暗示)
+>
+> * Thread类下的static native方法
+>
+>   ```java
+>   public static native void yield();
+>   ```
+>
+> * 代码示例：
+>
+>   [1] https://github.com/zhangshity/aysos/blob/master/src/main/java/com/zcy/thread/yield/YieldDemo.java
+>
+
+##### 9. interupt()
+
+> * 概念：调用interrut()方法，通知线程应该中断了（替代废弃的stop()方法）
+>
+>   * 如果线程处于被阻塞状态，那么线程立即退出被阻塞状态，并抛出一个InterruptedException异常
+>   * 如果线程处于正常活动状态，那么会将该线程的中断标志设置为true。被设置中断标志的线程将继续正常运行，不受影响。
+>
+> * Thread类下的普通方法（本质是native interrupt0()方法）
+>
+>   ```java
+>   public void interrupt() { ......
+>           synchronized (blockerLock) { ......
+>           interrupt0();
+>   }
+>                            
+>   private native void interrupt0();
+>   ```
+>
+> * 代码示例：
+>
+>   [1] https://github.com/zhangshity/aysos/blob/master/src/main/java/com/zcy/thread/intetrrupt/InterruptDemo.java
+
+##### 10. join()
+
+> * **概念**：一个线程t2，调用另一个线程`t1.join()`方法，直到线程t1完成其才继续进行（本质是wait()方法）
+>
+> * Thread类下的final普通方法
+>
+>   ```java
+>   public final void join() throws InterruptedException {
+>     join(0);
+>   }
+>   
+>   public final synchronized void join(long millis, int nanos)
+>   throws InterruptedException { ......
+>     join(millis);
+>   }
+>   
+>   public final synchronized void join(long millis)
+>   throws InterruptedException { ......
+>     if (millis == 0) {
+>         while (isAlive()) {
+>             wait(0);}
+>     } else {
+>         while (isAlive()) { ......
+>             wait(delay); ......}}
+>   }
+>   ```
+>
+> * 首先`join()`是一个synchronized方法， 里面调用了`wait()`，这个过程的目的是让持有这个同步锁的线程进入等待。那么谁持有了这个同步锁呢？答案是主线程——
+> (因为主线程调用了thread-A.join()方法，相当于在threadA.join()代码这块写了一个同步代码块）。谁去执行了这段代码呢，是主线程，所以主线程被wait()了。
+> 然后在子线程thread-A执行完毕之后，JVM会调用lock.notify_all(thread);唤醒持有threadA这个对象锁的线程，也就是主线程，会继续执行。
+>
+> * 代码实例：
+>
+>   [1] https://github.com/zhangshity/aysos/tree/master/src/main/java/com/zcy/thread/join/join_print
+>
+>   [2] https://github.com/zhangshity/aysos/blob/master/src/main/java/com/zcy/thread/join/DemoThread.java
+>
+
+##### 11. synchronized原理
+
+
+
+##### 12. synchronized和Reentrentlock区别
 
 
 
