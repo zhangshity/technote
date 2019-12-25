@@ -585,8 +585,91 @@
 > * 功能：
 >
 >   线程池主要用来解决线程生命周期开销问题和资源不足问题。通过对多个任务重复使用线程，线程创建的开销就被分摊到了多个任务上了，而且由于在请求到达时线程已经存在，所以消除了线程创建所带来的延迟。这样，就可以立即为请求服务，使用应用程序响应更快；另外，通过适当的调整线程中的线程数目可以防止出现资源不足的情况。（什么用）
+>   
+> * Executors
+>
+>   ```java
+>       public static ExecutorService newFixedThreadPool(int nThreads) {
+>           return new ThreadPoolExecutor(nThreads, nThreads,
+>                                         0L, TimeUnit.MILLISECONDS,
+>                                         new LinkedBlockingQueue<Runnable>());
+>       }
+>   
+>       public static ExecutorService newCachedThreadPool() {
+>           return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
+>                                         60L, TimeUnit.SECONDS,
+>                                         new SynchronousQueue<Runnable>());
+>       }
+>   
+>       public static ExecutorService newWorkStealingPool(int parallelism) {
+>           return new ForkJoinPool
+>               (parallelism,
+>                ForkJoinPool.defaultForkJoinWorkerThreadFactory,
+>                null, true);
+>       }
+>   
+>       public static ExecutorService newSingleThreadExecutor() {
+>           return new FinalizableDelegatedExecutorService
+>               (new ThreadPoolExecutor(1, 1,
+>                                       0L, TimeUnit.MILLISECONDS,
+>                                       new LinkedBlockingQueue<Runnable>()));
+>       }
+>   
+>   ```
+>
+>   
+>
+> * Fork/Join框架
+>
+>   * 把大任务分割成若干小任务并行执行，最终汇总每个小任务结果后得到大任务结果的框架。
+>   * Work-Stealing算法：某个线程从其他队列里窃取任务来执行
+>
+> * Executor框架：
+>
+>   ![](https://github.com/zhangshity/technote/blob/master/Resources/Executor%E6%A1%86%E6%9E%B6.png)
+>
+> * J.U.C三个Executor接口
+>
+>   * Executor：运行新任务的简单接口，将任务提交和任务执行细节解耦
+>
+>     ```java
+>     public interface Executor {
+>         void execute(Runnable command);
+>     }
+>     //Demo
+>     Thread t = new Thread();
+>     t.start();
+>     Thread t1 = new Thread();
+>     executor.execute(t);
+>     ```
+>
+>     
+>
+>   * ExecutorService：具备管理执行器和任务生命周期的方法，提交任务机制更完善
+>
+>   * ScheduledExecutorService：支持Future和定期执行任务
+>
+>   ![](https://github.com/zhangshity/technote/blob/master/Resources/ThreadPoolExecutor%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
+>
+> * 线程池状态
+>
+>   1. RUNNING：能接受新提交的任务，并且也能处理阻塞队列中的任务
+>   2. SHUTDOWN：不接受新提交的任务，但可以处理存量任务
+>   3. STOP：不接受新提交任务，也不处理存量任务
+>   4. TIDYING：所有任务都已终止
+>   5. TERMINATED：terminated()方法执行完后进入该状态
+>
+>   * 线程池状态转化图
+>
+>     ![](https://github.com/zhangshity/technote/blob/master/Resources/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%8A%B6%E6%80%81%E8%BD%AC%E5%8C%96%E5%9B%BE.png)
+>
+>   * 工作线程的生命周期
+>
+>     ![](https://github.com/zhangshity/technote/blob/master/Resources/%E5%B7%A5%E4%BD%9C%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
+>
+>     
 
-
+​	
 
 
 
