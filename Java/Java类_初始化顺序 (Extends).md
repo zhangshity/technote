@@ -132,3 +132,7 @@ ClassB()
 >   
 >
 > * 总是先静态后普通成员变量的，总是先父类后子类的
+
+
+
+其他分析贴：https://www.cnblogs.com/wenjianes/p/9999325.html
