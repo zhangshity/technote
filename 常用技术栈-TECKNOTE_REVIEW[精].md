@@ -460,24 +460,24 @@
   >           synchronized (getClassLoadingLock(name)) {
   >               // First, check if the class has already been loaded
   >               Class<?> c = findLoadedClass(name); //1.判断类是否已经加载,加载了就返回
-  >               if (c == null) {										//2.没加载就一直循环loadClass到顶层
+  >               if (c == null) {                    //2.没加载就一直循环loadClass到顶层
   >                   long t0 = System.nanoTime();
   >                   try {
   >                       if (parent != null) {
   >                           c = parent.loadClass(name, false);
   >                       } else {
   >                           c = findBootstrapClassOrNull(name); //到了顶层(c代码实现)
-  >                       }                      //从开始顶层加载类  //可能没有加载返回null
+  >                       }                      //顶层加载类      //可能没有加载返回null
   >                   } catch (ClassNotFoundException e) {
   >                       // ClassNotFoundException thrown if class not found
   >                       // from the non-null parent class loader
   >                   }
-  >   
-  >                   if (c == null) {//顶层没有加载返回对象就依然为null //3.从顶层开始向下加载
+  >                        //顶层没有加载，返回对象就依然为null
+  >                   if (c == null) {                //3.开始从顶层开始向下加载
   >                       // If still not found, then invoke findClass in order
   >                       // to find the class.
   >                       long t1 = System.nanoTime();
-  >                       c = findClass(name); //4.向下加载过程为子类覆盖方法findClass自定义
+  >                       c = findClass(name);        //4.向下加载过程为子类覆盖方法findClass()自定义
   >   
   >                       // this is the defining class loader; record the stats
   >                       sun.misc.PerfCounter.getParentDelegationTime().addTime(t1 - t0);
