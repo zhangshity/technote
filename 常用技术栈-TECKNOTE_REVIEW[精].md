@@ -372,7 +372,7 @@
   >
   > ```java
   > public abstract class ClassLoader {
-  >   ...
+  >   
   >   protected Class<?> loadClass(String name, boolean resolve) 
   >    		throws ClassNotFoundException
   >   {synchronized (getClassLoadingLock(name)) {
@@ -387,6 +387,16 @@
   >   protected final Class<?> defineClass(String name, byte[] b, int off, int len)
   >        throws ClassFormatError
   >   {return defineClass(name, b, off, len, null);}
+  >   
+  >   
+  >   //核心加载方法(最终调用)
+  >   private native Class<?> defineClass0(String name, byte[] b, int off, int len,
+  >                                          ProtectionDomain pd);
+  >   private native Class<?> defineClass1(String name, byte[] b, int off, int len,
+  >                                          ProtectionDomain pd, String source);
+  >   private native Class<?> defineClass2(String name, java.nio.ByteBuffer b,
+  >                                          int off, int len, ProtectionDomain pd,
+  >                                          String source);
   > }
   > ```
   >
