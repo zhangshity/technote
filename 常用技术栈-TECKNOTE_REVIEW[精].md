@@ -317,19 +317,123 @@
 ---
 ## 6 JVM
 
-##### 1. ClassLoader
+##### 1. 反射
+
+* Java的反射机制是在*<u>运行状态</u>*中，
+
+  对于任意一个类，都能知道这个类的所有属性和方法；
+
+  对于任意一个对象，都能任意调用它的任意属性和方法；
+
+  这种**动态获取信息**以及**动态调用对象方法**的功能称为java语言的反射机制。
+
+* 代码示例：
+  
+  ```java
+  // 三种反射获取实例的方式
+  //* 1)Class类静态方法
+  	Class.forName("com.zcy.reflection.Person");   //--最常用
+  //* 2)每个类继承的Object类的
+  	person.getClass() //方法;                     //--需要先实例化对象
+  //* 3)对象实例
+  	Class clazz = Person.class                    //--？
+  
+  
+  // 构造器获取方法
+   Constructor constructor= clazz.getConstructor();  
+  
+  // 实例化对象
+   //1)
+   Object obj  = clazz.newInstance();        
+   //2)
+   Object obj2 = constructor.newInstance();
+  
+  // 获取对象方法
+   Method method1 = obj.getMethod("setId",int.class);              //--方法名,参数 获取
+   Method method2 = obj.getDeclaredMethod("setId",int.class);      //--强制获取,包括私有
+   Method[] methods1 = obj.getMethods();                           //--所有方法
+   Method[] methods2 = obj.getDeclaredMethods();                   //--强制获取所有方法
+  
+  // 获取对象字段
+   Field field1 = obj.getField("id");                              //--字段名获取
+   Field field2 = obj.getDeclaredField("id");                      //--强制获取,包括私有
+   Field[] fields1 = obj.getFields();                              //--所有字段
+   Field[] fields2 = obj.getDeclaredFields();                      //--强制获取所有字段
+  
+  ```
+  
+  
+
+##### 2. ClassLoader
+
+* 定义
+
+  > 负责通过将Class文件里的二进制数据流装载进系统，然后交给Java虚拟机进行连接、初始化等操作。
+  >
+  > ```java
+  > public abstract class ClassLoader {
+  >   ...
+  >   protected Class<?> loadClass(String name, boolean resolve) 
+  >    		throws ClassNotFoundException
+  >   {synchronized (getClassLoadingLock(name)) {
+  >         {... c = findClass(name); ...}
+  >     return c;}
+  >   }
+  >   
+  >   protected Class<?> findClass(String name) throws ClassNotFoundException {
+  >         throw new ClassNotFoundException(name);
+  >   }//需要自定义继承类实现
+  >   
+  >   protected final Class<?> defineClass(String name, byte[] b, int off, int len)
+  >        throws ClassFormatError
+  >   {return defineClass(name, b, off, len, null);}
+  > }
+  > ```
+  >
+  > 自定义ClassLoader实现：
+  >
+  > https://github.com/zhangshity/aysos/tree/dfffe5b75d41ac7debf1b9ec8e2b3fe54c82be3f/src/main/java/com/zcy/_classloader
+  >
+  > 子类继承抽象父类，不实现父类方法，main中调用此未实现方法：
+  >
+  > https://github.com/zhangshity/aysos/tree/dfffe5b75d41ac7debf1b9ec8e2b3fe54c82be3f/src/main/java/com/zcy/_extends/mthd_in_fathr_cls
+
+  
 
 * 种类
 
-  > 1.BootStrapClassLoader：C++编写，加载核心库java.*
+  > 1.BootStrapClassLoader：C++编写，加载核心库java.*    (此类库位于`$JAVA_HOME/jre/lib`)
   >
-  > 2.ExtClassLoader：Java编写，加载扩展库javax.*
+  > 2.ExtClassLoader：Java编写，加载扩展库javax.*    (此类库位于`$JAVA_HOME/jre/lib/ext`)
   >
-  > 3.AppClassLoader：Java编写，加载程序所在目录
+  > 3.AppClassLoader：Java编写，加载程序所在目录    (位于`$CLASSPATH`下)
   >
   > 4.自定义ClassLoader：Java编写，定制化加载
+  >
+  > ```java
+  > //Bootstrap ClassLoader
+  > System.out.println(System.getProperty("sun.boot.class.path"));
+  > //Extendsion ClassLoader
+  > System.out.println(System.getProperty("java.ext.dirs"));
+  > //Application ClassLoader
+  > System.out.println(System.getProperty("java.class.path"));
+  > ```
+  
+  
+  
+* 加载流程
 
-##### 2.JVM内存模型
+  > 1. 编译器将 **Student.java** 源文件编译为 **Student.class** 字节码文件
+  > 2. ClassLoader将字节码文件转换为JVM中的`Class<Student>`对象
+  > 3. JVM利用`Class<Student>`对象实例化为**Student**对象
+
+* 双亲委派模型
+
+  > 1 adas 
+  >
+  > 
+
+##### 3. JVM内存模型
 
 * ![](https://github.com/zhangshity/technote/blob/master/Resources/JVM内存模型.png)
 * 
