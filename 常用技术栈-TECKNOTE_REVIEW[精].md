@@ -451,7 +451,7 @@
   >
   > * 从下向上判断是否加载过，加载过就返回，没有就丢给父类去加载，如果父类还有父类就继续向上丢。-------到顶层BootstrapClassLoader就开始逐层向下问是否可以加载(在自定义的findClass()中实现)，能加载就加载不能就往子类丢。
   >
-  > * ![](https://github.com/zhangshity/technote/blob/bd9ea055654721c148ed6147239a626646daa7a1/Resources/CL%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6.jpg)
+  >   ![](https://github.com/zhangshity/technote/blob/bd9ea055654721c148ed6147239a626646daa7a1/Resources/CL%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6.jpg)
   >
   > *  **双亲委派机制源码分析：**
   >
