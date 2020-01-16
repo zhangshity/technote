@@ -441,7 +441,7 @@
 
   > 双亲委派机制工作过程：
   >
-  > 1. 类加载器收到类加载的请求；
+  > 1. 类加载器收到类加载的请求，查看已被加载，有就返回；没有就向上找父类；
   >
   > 2. 把这个请求委托给父加载器去完成，一直向上委托，直到启动类加载器；
   >
@@ -449,8 +449,51 @@
   >
   > 4. 重复步骤三
   >
-  > * 从下向上判断是否加载过，加载过就返回，没有就丢给父类去加载，也不能加载就再网上丢。-------到顶层BootstrapClassLoader就开始逐层向下问，是否可以加载，能加载就加载不能就往子类丢。
+  > * 从下向上判断是否加载过，加载过就返回，没有就丢给父类去加载，如果父类还有父类就继续向上丢。-------到顶层BootstrapClassLoader就开始逐层向下问是否可以加载(在自定义的findClass()中实现)，能加载就加载不能就往子类丢。
+  >
   > * ![](https://github.com/zhangshity/technote/blob/bd9ea055654721c148ed6147239a626646daa7a1/Resources/CL%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6.jpg)
+  >
+  >   ```java
+  >   protected Class<?> loadClass(String name, boolean resolve)
+  >           throws ClassNotFoundException
+  >       {
+  >           synchronized (getClassLoadingLock(name)) {
+  >               // First, check if the class has already been loaded
+  >               Class<?> c = findLoadedClass(name); //1.判断类是否已经加载,加载了就返回
+  >               if (c == null) {										//2.没加载就一直循环loadClass到顶层
+  >                   long t0 = System.nanoTime();
+  >                   try {
+  >                       if (parent != null) {
+  >                           c = parent.loadClass(name, false);
+  >                       } else {
+  >                           c = findBootstrapClassOrNull(name); //到了顶层(c代码实现)
+  >                       }                      //从开始顶层加载类  //可能没有加载返回null
+  >                   } catch (ClassNotFoundException e) {
+  >                       // ClassNotFoundException thrown if class not found
+  >                       // from the non-null parent class loader
+  >                   }
+  >   
+  >                   if (c == null) {//顶层没有加载返回对象就依然为null //3.从顶层开始向下加载
+  >                       // If still not found, then invoke findClass in order
+  >                       // to find the class.
+  >                       long t1 = System.nanoTime();
+  >                       c = findClass(name); //4.向下加载过程为子类覆盖方法findClass自定义
+  >   
+  >                       // this is the defining class loader; record the stats
+  >                       sun.misc.PerfCounter.getParentDelegationTime().addTime(t1 - t0);
+  >                       sun.misc.PerfCounter.getFindClassTime().addElapsedTimeFrom(t1);
+  >                       sun.misc.PerfCounter.getFindClasses().increment();
+  >                   }
+  >               }
+  >               if (resolve) {
+  >                   resolveClass(c);
+  >               }
+  >               return c;
+  >           }
+  >       }
+  >   ```
+  >
+  >   
 
 ##### 3. JVM内存模型
 
