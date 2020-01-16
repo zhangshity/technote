@@ -453,6 +453,8 @@
   >
   > * ![](https://github.com/zhangshity/technote/blob/bd9ea055654721c148ed6147239a626646daa7a1/Resources/CL%E5%8F%8C%E4%BA%B2%E5%A7%94%E6%B4%BE%E6%9C%BA%E5%88%B6.jpg)
   >
+  > *  **双亲委派机制源码分析：**
+  >
   >   ```java
   >   protected Class<?> loadClass(String name, boolean resolve)
   >           throws ClassNotFoundException
