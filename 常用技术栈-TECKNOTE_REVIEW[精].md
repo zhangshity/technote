@@ -60,7 +60,6 @@
       	<td>ISO2110,IEEE802,IEEE802.2</td>
     </tr>
 </table>
-
 ---
 
 ##### 3. 三次握手
@@ -839,11 +838,36 @@
 
 ​	
 
+---
+
+## 10 类库
+
+ ##### 1 异常
 
 
 
+##### 2 Collection 集合框架
+
+> ~ 数据结构
+>
+> * 数组和链表的区别
+> * 链表的操作(反转、链表环路检测、双向链表、循环链表)
+> * 队列、栈
+> * 二叉树的遍历方式 递归和非递归实现
+> * 红黑树的旋转
+
+> ~ 算法
+>
+> * 内部排序：递归排序、交换排序(冒泡 快速)、选择排序、插入排序
+> * 外部排序：有限内存配合海量外部存储，处理超大数据集
+
+![](https://github.com/zhangshity/technote/blob/master/Resources/List%E5%92%8CSet.png)
 
 
+
+##### J.U.C包(java.util.concurrent)
+
+> 
 
 ---
 
@@ -1065,4 +1089,4 @@ HashMap 1.8和1.7对比：
 >
 > ![img](https://www.runoob.com/wp-content/uploads/2013/12/overloading-vs-overriding.png)
 >
-> ![img](https://www.runoob.com/wp-content/uploads/2013/12/20171102-1.jpg)
+> ![img](https://www.runoob.com/wp-content/uploads/2013/12/20171102-1.jpg)	
