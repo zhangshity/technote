@@ -273,13 +273,87 @@
 
 ## 4 Redis
 
+##### 1. 基本类型
+
+* **String**  最基本数据类型，二进制安全
+
+```redis
+set name "Allen"
+get name
+
+set age 18
+get age
+
+set city "LA"
+get city
 
 
+set count 1  --OK
+get count    --"1"
+incr count   --Integer(2)
+get count    --"2"
 
+```
 
+* **Hash** String元素组成的字典，适合用于存储对象
 
+```redis
+hmset student name "Allen" age 18 city "LA"
+----
+OK
 
+hget student name
+hget student age
+hget student city
 
+hset student city "D.C."
+hget student city
+```
+
+* **List** 列表，按照String元素的插入顺序排序
+
+```redis
+lpush mylist aaa
+lpush mylist bbb
+lpush mylist ccc
+
+lrange mylist 0 10
+----
+1)"ccc"
+2)"bbb"
+3)"aaa"
+```
+
+* **Set** String元素组成的无序集合，通过哈希表实现，不允许重复
+
+```redis
+sadd myset "aaa"
+sadd myset "bbb"
+sadd myset "ccc"
+sadd myset 112
+sadd myset 156
+
+smembers myset
+```
+
+* **ZSet** (Sorted Set)通过分数来为集合中的成员进行从小到大排序
+
+```redis
+zadd myzset 2 bdc
+zadd myzset 1 abc
+zadd myzset 3 ced
+zadd myzset 2 bdc
+
+zrangebuscore myzset 0 10
+----
+1)"abc"
+2)"bdc"
+3)"cde"
+
+```
+
+* HyperLogLog 计数
+* Geo 地理信息
 
 
 
