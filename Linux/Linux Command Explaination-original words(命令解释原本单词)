@@ -93,7 +93,10 @@ scp     (source copy)              从linux(Mac)到linux资源拷贝
         (格式: scp bds@10.xx.xx.122:~/cds-2.0.0.0-SNAPSHOT.zip /Users/Desktop)
                                               
                                               -r 拷贝文件夹下的所有文件
-        
+ssh-keygen                         生成ssh key
+                                              -t (type) 加密类型(rsa/...)
+					      -C (comment)
+					      -b (bit) 秘钥长度
 =====================================================================================
 logout                             退出当前根用户(断开连接)
 reboot                             重启服务器
