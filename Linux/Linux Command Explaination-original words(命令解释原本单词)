@@ -7,7 +7,7 @@ cd /    (change directory)         根目录(/)
 cd .    (change directory)         当前目录
 cd ..   (change directory)         返回上级目录
 cd ~    (change directory)         用户目录
-cd      (可以省略"~"符号)          用户目录
+cd      (可以省略"~"符号)            用户目录
 
 
 
@@ -17,10 +17,10 @@ pwd     (print work directory)     打印当前工作目录路径
 cp      (copy)                     复制文件或目录
 mv      (move)                     移动文件或目录
 rm      (remove)                   移除文件或目录(rm -r 移除目录,子文件或目录只读会询问)
-					      -i    删除前逐一询问确认。(interactive)
-					      -f    即使原档案属性设为唯读，亦直接删除，无需逐一确认。(force)
-                                              -r/R  将目录及以下之档案亦逐一删除。(recursive)
-		                              -rf   强制删除目录或文件,不提示。
+					    -i     删除前逐一询问确认。(interactive)
+					    -f     即使原档案属性设为唯读，亦直接删除，无需逐一确认。(force)
+                                              -r/R   将目录及以下之档案亦逐一删除。(recursive)
+		                             -rf    强制删除目录或文件,不提示。
 
 rmdir   (remove directory)         移除空目录
 mkdir   (make directory)           新建目录
@@ -39,6 +39,9 @@ kill    (kill)                     结束进程
                                               -9   Kill (terminate immediately)
                                  
 df      (disk free)                磁盘使用空间
+du      (disk usage)               显示目录或文件的大小
+                                              -h 或 --human-readable    以K，M，G为单位，提高信息的可读性
+                                              -s 或 --summarize         仅显示总计
 cmp     (compare)                  比较两个文件是否相同(不能比较目录)
 diff    (difference)               逐行比较两个文件是否相同,或两目录下同名文件
 touch   (touch)                    创建文件或修改目录时间	
@@ -95,8 +98,8 @@ scp     (source copy)              从linux(Mac)到linux资源拷贝
                                               -r 拷贝文件夹下的所有文件
 ssh-keygen                         生成ssh key
                                               -t (type) 加密类型(rsa/...)
-					      -C (comment)
-					      -b (bit) 秘钥长度
+					    -C (comment)
+					    -b (bit) 秘钥长度
 =====================================================================================
 logout                             退出当前根用户(断开连接)
 reboot                             重启服务器
